@@ -19,7 +19,7 @@ namespace CoolCode.Wolfee.Tests.Controllers {
 			ViewResult result = controller.Index() as ViewResult;
 
 			// Assert
-			Assert.AreEqual("Welcome to ASP.NET MVC!", result.ViewBag.Message);
+			Assert.IsNotNull(result.ViewBag);
 		}
 
 		[TestMethod]
