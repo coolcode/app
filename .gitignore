@@ -1,6 +1,25 @@
-# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 bin
 obj
-
-# mstest test results
+*.suo
+.DS_Store
+Bin
+ClientBin
+Backup
+backup
+*.rar
+*.mdf
+*.LDF
+*.ldf
+*.db
+*.svn
+*.git
+*.hg
+Tests
+debug
+_ReSharper.*
+*.user
+*.testsettings
+*.vsmdi
 TestResults
+nuget-pack
+*.nuspec
