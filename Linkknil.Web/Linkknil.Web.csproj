@@ -35,14 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoolCode.Core">
-      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.Core.dll</HintPath>
+    <Reference Include="CoolCode.Core, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Referencies\CoolCode.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CoolCode.ServiceModel">
-      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.ServiceModel.dll</HintPath>
+    <Reference Include="CoolCode.ServiceModel, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Referencies\CoolCode.ServiceModel.dll</HintPath>
     </Reference>
-    <Reference Include="CoolCode.Web.Mvc">
-      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.Web.Mvc.dll</HintPath>
+    <Reference Include="CoolCode.Web.Mvc, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Referencies\CoolCode.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

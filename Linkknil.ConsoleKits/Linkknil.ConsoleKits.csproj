@@ -35,13 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoolCode.Core, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.Core.dll</HintPath>
-    </Reference>
     <Reference Include="CoolCode.ServiceModel, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.ServiceModel.dll</HintPath>
+      <HintPath>..\packages\Referencies\CoolCode.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
