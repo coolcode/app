@@ -274,7 +274,6 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Themes\default\site.css" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
