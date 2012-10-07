@@ -1,0 +1,36 @@
+﻿@{
+	Layout = "~/Views/Shared/_Site.cshtml";
+	ViewBag.Title = "数据字典";
+}
+
+	<div class="content-box" style="float:left;width:20%;"> 
+		<div class="content-box-header">
+			<h3>类别</h3>  
+			<div class="clear">
+			</div>
+		</div>
+
+		<div class="content-box-content">
+			<div class="tab-content default-tab">
+				@Html.Action("HeaderList")
+			</div>  
+		</div>
+	</div>
+	<div class="content-box" style="float:right;width:75%;"> 
+		<div class="content-box-header">
+			<h3>@ViewBag.Title </h3> 
+				
+			@Html.Partial("Controls/_Toolbar", new{name= this.Request.QueryString["name"], entity="DictionaryItem"}) 
+			<ul class="content-box-tabs">
+				<li></li>  
+			</ul>
+			<div class="clear">
+			</div>
+		</div>
+
+		<div class="content-box-content">
+			<div class="tab-content default-tab" >
+				@Html.GridLoader("ItemList")
+			</div>  
+		</div>
+	</div> 

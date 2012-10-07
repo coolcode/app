@@ -1,0 +1,77 @@
+﻿@model RegisterModel
+@{
+	Layout = "~/Views/Shared/_Default.cshtml";
+	ViewBag.Title = "用户注册";
+}
+@section css{
+	<link href="../../Content/css/default/login.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/css/default/form.css" rel="stylesheet" type="text/css" />
+}
+<div id="login-wrapper" class="png_bg">
+	<div id="login-top">
+		@*<img id="logo" src="../../Content/images/logo.png" alt="logo" />*@
+		<h1>
+			新用户注册</h1>
+	</div>
+	<div id="login-content"> 
+		@using (Html.BeginForm()) {  
+			<div class="notification information png_bg">
+				<div>
+					已经拥有帐号？点 @Html.ActionLink("这里", "LogOn", "Home") 登录
+				</div>
+			</div>
+			<p>
+				@Html.LabelFor(c => c.UserName)
+				@Html.TextBoxFor(c => c.UserName)
+			</p>
+			<div class="clear">
+			</div>
+			<p>
+				@Html.LabelFor(m => m.Email)
+				@Html.TextBoxFor(m => m.Email)
+			</p>
+			<div class="clear">
+			</div>
+			<p>
+				@Html.LabelFor(c => c.Password)
+				@Html.PasswordFor(c => c.Password)
+			</p>
+			<div class="clear">
+			</div>
+			<p>
+				@Html.LabelFor(c => c.ConfirmPassword)
+				@Html.PasswordFor(c => c.ConfirmPassword) 
+			</p> <div class="clear">
+			</div>
+			<p>
+				<input class="button" name="commit" type="submit" value="注 册" />
+			</p>
+			@Html.ValidationSummary(true, "注册失败，请查看你输入的信息是否正确。")  
+	}
+	</div>
+</div>
+
+@section script{
+	<script type="text/javascript"> 
+		$(document).ready(function() {
+			$("form").validate({
+				rules: {
+					UserName: "required",
+					Email: {
+						required: true,
+						email: true
+					},
+					Password: {
+						required: true,
+						minlength: @ViewData["PasswordLength"]
+					},
+					ConfirmPassword: {
+						required: true,
+						minlength: @ViewData["PasswordLength"],
+						equalTo: "#Password"
+					}
+				}
+			});
+		});
+	</script>
+}

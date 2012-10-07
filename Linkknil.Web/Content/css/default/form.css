@@ -1,0 +1,8 @@
+﻿
+/*validation*/
+label.error{background: url(images/site/unchecked.gif) no-repeat;display:inline;width:96px;height: 16px;padding-left: 16px;margin-left: .3em;  color: red;}
+label.valid{background: url(images/site/checked.gif) no-repeat;display: block;width: 16px;height: 16px;}
+ 
+.validation-summary-valid
+{
+}

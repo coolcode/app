@@ -1,0 +1,75 @@
+﻿@model DictionaryItem
+@{
+	Layout = "~/Views/Shared/_Form.cshtml";
+	ViewBag.Title = "数据字典";
+}
+
+@using (Html.BeginForm()){
+	<div class="content-box">
+		<div class="content-box-header">
+			<h3>@ViewBag.Title</h3>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="content-box-content">
+			<div class="tab-content default-tab" id="tab1">
+				@Html.ValidationSummary(true) 
+				<fieldset>
+					<legend></legend>
+					<p>
+						<label class="field">类别</label>
+						@Html.TextBoxFor(model => model.Name)
+					</p>
+					<p>
+						<label class="field">键值</label>
+						@Html.TextBoxFor(model => model.Value) 
+					</p>
+					<p>
+						<label class="field">内容</label>
+						@Html.TextBoxFor(model => model.Text) 
+					</p>
+					<p>
+						<label class="field">是否有效</label>
+						@Html.CheckBoxFor(model => model.Enabled)
+					</p>
+					<p>
+					@if (Model != null && Model.IsInner) {  
+						<label class="field">是否内置</label>
+						@(Model.IsInner?"是":"否")
+					} 
+					</p>
+				</fieldset>
+				@Html.HiddenFor(model=> model.SortIndex)
+				@Html.HiddenFor(model => model.IsInner)
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+		<div align="center">
+			<input type="submit" value="保存" />
+			<input type="button" value="取消" onclick="parent.$.fancybox.close()" />
+		</div>
+	</div>
+} 
+
+@section script{
+	<script type="text/javascript">
+
+		$(function () {
+			if (!$("#Name").val()) {
+				$("#Name").val('@(this.Request.QueryString["name"])');
+			}
+
+			$("form").validate({
+				rules: {
+					Name: "required",
+					Value: "required",
+					Text: "required"
+				},
+				submitHandler: function (form) {
+					$.ajaxSave({ url: form.action });
+				}
+			});
+		});
+	</script>
+}

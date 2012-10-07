@@ -1,0 +1,58 @@
+﻿@model VirtualView
+@{
+	Layout = "~/Views/Shared/_Form.cshtml";
+	ViewBag.Title = "CMS Edit";
+}
+
+@using (Html.BeginForm(new { entity = "VirtualView" }))
+{
+	<div class="content-box">
+		<div class="content-box-header">
+			<h3>@ViewBag.Title</h3>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="content-box-content">
+			<div class="tab-content default-tab" id="tab1">
+				@Html.ValidationSummary(true) 
+				<fieldset>
+					<legend></legend>
+					<p>
+						<label class="field">路径</label> 
+						@Html.TextBoxFor(model => model.Path, (ViewBag.FormMode != FormMode.New?new { @readonly = "readonly"}: null) )						 
+					</p> 
+					<p>
+						<label class="field">内容</label>
+						@Html.TextAreaFor(model => model.Html, 10, 30, null);
+					</p> 
+					<p>
+						<label class="field">更新时间</label>
+						@Model.UpdateTime
+					</p> 
+				</fieldset>  
+				<div class="clear">
+				</div>
+			</div>
+		</div>
+		<div align="center">
+			<input type="submit" value="保存" />
+			<input type="button" value="取消" onclick="parent.$.fancybox.close()" />
+		</div>
+	</div>
+} 
+
+@section script{
+	<script type="text/javascript">
+
+		$(function () {
+			$("form").validate({
+				rules: {
+					Path: "required" 
+				},
+				submitHandler: function (form) {
+					$.ajaxSave({ url: form.action });
+				}
+			});
+		});
+	</script>
+}

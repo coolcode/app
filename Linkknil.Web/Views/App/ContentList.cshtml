@@ -1,0 +1,13 @@
+﻿@(
+ Html.Grid().Columns(c => {
+     c.Column("Url").Header("链接").Sortable(true).Template(@<text> <a href="@item.Url" title="@item.Url" target="_blank">@item.Url</a></text>);
+     c.Column("Title").Header("标题").Sortable(true).Template(@<text> @Html.ActionLink(string.IsNullOrWhiteSpace((string)item.Title) ? "[无标题]" : ((string)item.Title).Cut(20)
+     ,"Details", "Archive", new { id = item.Id }, new { target = "_blank", title = item.Title })</text>);
+     c.Column("Text").Header("快照").Sortable(true).CharsLength(30);
+     
+     c.Column("BeginTime").Header("开始抓取时间").Sortable(true);
+     c.Column("EndTime").Header("结束抓取时间").Sortable(true);
+     c.Column("TimeSpan").Header("花费时间（秒）").Sortable(true);
+     })
+      .Sort(defaultSort: "BeginTime Desc")
+)

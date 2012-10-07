@@ -1,0 +1,76 @@
+﻿@{
+    Layout = "~/Views/Shared/_Default.cshtml";
+	ViewBag.Title = "用户登录";	
+}
+@section css{
+	<link href="../../Content/css/default/login.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/css/default/form.css" rel="stylesheet" type="text/css" />  
+}
+
+	<div id="login-wrapper" class="png_bg">
+			<div id="login-top">			
+				<h1>@ViewBag.Title</h1>
+				<!-- Logo (221px width) 
+				<img id="logo" src="../../Content/images/logo.png" alt="logo" />-->
+			</div> <!-- End #logn-top -->
+			
+			<div id="login-content">				
+				<form action="/"> 
+					<div class="notification information png_bg">
+						<div>
+							没有帐号？点 @Html.ActionLink("这里", "Register", "Home") 注册一个
+						</div>
+					</div>
+					<p>
+						<label for="UserName">用户名</label>
+						<input id="UserName" name="UserName" class="text-input" type="text" />
+					</p>
+					<div class="clear"></div>
+					<p>
+						<label for="Password">密码</label>
+						<input id="Password" name="Password" class="text-input" type="password" />
+					</p>
+					<div class="clear"></div>
+					<p id="remember-password">
+						<input id="RememberMe" name="RememberMe" type="checkbox" value="true" /><label for="RememberMe">记住我</label> 
+					</p>
+					<div class="clear"></div>
+					<p>
+						<input class="button" type="submit" value="登 录" />
+					</p>
+					<div class="clear"></div>
+					
+				</form>
+				@Html.Partial("_Note", "<span id=\"error\"></span>")
+			</div> <!-- End #login-content -->
+			
+		</div> <!-- End #login-wrapper -->
+		 
+@section script{ 
+	<script src="../../Content/js/site/form.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	    $(function () {
+	        $("form").validate({
+	            rules: {
+	                UserName: "required",
+	                Password: "required"
+	            },
+	            submitHandler: function (form) {
+	                $.getJSON('/Home/ValidateUser', $('form').serialize(), function (data) {
+	                    if (data.success) {	                        
+	                        window.location = (data.url ? data.url : '/Home/Index');
+	                    }
+	                    else {
+	                        $("#error").text(data.message);
+	                        $("#error").parent().parent().fadeTo(400, 100, function () { // Links with the class "close" will close parent
+	                            $(this).slideDown(400);
+	                        });
+	                    }
+	                });
+	            }
+	        });
+
+	    });
+	</script>
+}
+

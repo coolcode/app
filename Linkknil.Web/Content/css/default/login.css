@@ -1,0 +1,73 @@
+
+/********************************      Login Page      ********************************/
+
+body
+{
+	color: #fff;
+	background: #222 url(images/site/bg-login.gif);
+}
+
+a:hover     { color: #fff; }
+
+#login-wrapper
+{
+	background: url(images/site/bg-login-top.png) top left repeat-x;
+}
+
+#login-wrapper #login-top
+{
+	width: 100%;
+	padding: 140px 0 50px 0;
+	text-align: center;
+}
+
+#login-wrapper #login-content
+{
+	text-align: left;
+	width: 300px;
+	margin: 0 auto;
+}
+
+#login-wrapper #login-content label
+{
+	color: #fff;
+	font-weight: normal;
+	font-size: 14px; 
+	float: left;
+	width: 70px;
+	padding: 0;
+}
+
+#login-wrapper #login-content input
+{
+	width: 200px;
+	float: right;
+	margin: 0 0 20px 0;
+	border: 0;
+	background: #fff;
+}
+
+#login-wrapper #login-content p
+{
+	padding: 0;
+}
+
+#login-wrapper #login-content p#remember-password
+{
+	float: right;
+}
+
+#login-wrapper #login-content p#remember-password input
+{
+	float: none;
+	width: auto;
+	border: 0;
+	background: none;
+	margin: 0 10px 0 0;
+}
+
+#login-wrapper #login-content p .button
+{
+	width: auto;
+	margin-top: 20px;
+}

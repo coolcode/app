@@ -1,0 +1,44 @@
+﻿@model App
+@{
+    Layout = "~/Views/Shared/_Form.cshtml";
+    ViewBag.Title = "审核应用";
+}
+<div class="content-box">
+    <div class="content-box-header">
+        <h3>@ViewBag.Title</h3>
+        <div class="clear">
+        </div>
+    </div>
+    @Html.Partial("Controls/_Details", Model)
+    @using (Html.BeginForm()) {
+        <div class="content-box-content">
+            <div class="tab-content default-tab">
+                <p>
+                    <label class="field">
+                        审核意见</label>
+                    @Html.TextAreaFor(model => model.Suggestion, 10, 30, null);
+                </p>
+            </div>
+        </div>
+        <div align="center">
+            <input type="button" value="通过" onclick="$.ajaxSave({ url: '@Url.Action("Pass", new { id = Model.Id })' });" />
+            <input type="submit" value="不通过" />
+        </div>
+    }
+</div>
+}
+@section script{
+    <script type="text/javascript">
+
+        $(function () {
+            $("form").validate({
+                rules: {
+                    Suggestion: "required"
+                },
+                submitHandler: function (form) {
+                    $.ajaxSave({ url: '@Url.Action("NotPass", new { id = Model.Id })' });
+                }
+            });
+        });
+    </script>
+}

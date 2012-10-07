@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "应用：" + ViewBag.App.Name;
+    Layout = "~/Views/Shared/_Form.cshtml";
+}
+<div class="content-box">
+    <div class="content-box-header">
+        <h3>@ViewBag.Title</h3>
+        <a href="@Url.Action("CreateLink",new{appId = ViewBag.App.Id})" class="iframe" rel="modal">
+            <img src="../../Content/images/icons/new.png" title="添加内容源" alt="添加内容源" width="36px" height="36px" />
+        </a>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="content-box-content">
+        <div class="tab-content default-tab" id="tab1">
+            @foreach (LinkItem item in ViewBag.Links) {
+                <div>
+                    <p>
+                        <a href="@item.Url" target="_blank">@item.Url</a></p>
+                    <p>@item.XPath</p>
+                    <p>@Html.DictionaryText("ItemStatus", item.Status.ToString())</p>
+                    @Html.ActionLink("编辑","EditLink",new{id = item.Id, appId = item.AppId})
+                    @if(item.Status == (int) ItemStatus.Disabled){
+                        @Html.DeleteLink("DeleteLink",new{id = item.Id})
+                    }
+                </div>
+            }
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <div align="center">
+    </div>
+</div>

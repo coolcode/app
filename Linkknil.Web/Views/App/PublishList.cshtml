@@ -1,0 +1,10 @@
+﻿@(
+ Html.Grid<AppViewModel>().Columns(c => {
+     c.Column(x => x.Name).Header("应用名称").Sortable(true).Template(@<text> @Html.DialogLink(item.Name, "Details", new { id = item.Id })</text>);
+          c.Column(x => x.Dev).Header("开发者").Sortable(true);
+          c.Column(x => x.PublishTime).Header("上线时间").Sortable(true);
+          //c.Column(x => x.VisitNum).Header("访问量").Sortable(true);
+          c.Column().Header("操作").Width(100).Partial("Operator").Align(Alignment.Center);
+      })
+      .Sort(defaultSort: "PublishTime")
+)

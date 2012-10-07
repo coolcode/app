@@ -1,0 +1,18 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{	
+	Layout = "~/Views/Shared/_Default.cshtml";	   
+	ViewBag.Title="错误";
+}
+ 
+    <h2>
+        Sorry, @ViewData["Message"] 
+    </h2>
+    <br />
+    <a href="javascript:history.back();">返回上一页</a>
+    <br />
+    @if (Model!= null && Model.Exception != null) { 
+		<div>
+		<b>详细信息：</b><p>@Model.Exception.Message</p>
+		<p>@Model.Exception.StackTrace</p>
+		</div>
+    }  

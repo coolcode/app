@@ -1,0 +1,8 @@
+﻿@if(Request.IsAuthenticated) {
+    @Html.ActionLink(this.PageContext.Page.User.Identity.Name, "ViewUser", "User", new { User = this.PageContext.Page.User.Identity.Name }, null)
+    @:[ @Html.ActionLink("退出", "LogOff", "Home")] 
+}
+else
+{
+    @:[ @Html.ActionLink("登录", "LogOn", "Home") ]
+}

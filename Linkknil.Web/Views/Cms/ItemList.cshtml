@@ -1,0 +1,10 @@
+﻿ @(
+ Html.Grid<VirtualView>().Columns(c =>
+	  {
+		  c.Column(x => x.Id).CheckBox();
+		  c.Column(x => x.Path).Header("路径").Sortable(true).Width(100);
+		  c.Column(x => x.Html).Header("内容");
+		  c.Column(x => x.UpdateTime).Header("更新时间").Width(150).Sortable(true);
+		  c.Column().Header("操作").Width(80).Partial("Operator").Align(Alignment.Center);
+	  })
+)  

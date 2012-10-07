@@ -1,0 +1,16 @@
+﻿ 
+<ul>
+<li>@Html.ActionLink("全部", "Index", null, new { @class = (string.IsNullOrEmpty( this.Request.QueryString["name"]) ? "current" : "") })
+	@if (string.IsNullOrEmpty(this.Request.QueryString["name"])){
+		<img src="../../Content/images/icons/checker.gif" />
+	} 
+</li>
+@foreach (string item in Model) {  
+<li>
+	@Html.ActionLink(item, "Index", new { name = item }, new { @class = (item == this.Request.QueryString["name"]? "current":"")})
+	@if (item == this.Request.QueryString["name"]){
+		<img src="../../Content/images/icons/checker.gif" />
+	} 
+</li>
+} 
+</ul>

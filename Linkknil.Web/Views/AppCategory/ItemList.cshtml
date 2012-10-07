@@ -1,0 +1,9 @@
+﻿@(
+ Html.Grid<AppCategory>().Columns(c => {
+          c.Column(x => x.Id).CheckBox().Width(40);
+          c.Column(x => x.Name).Header("分类名称").Sortable(true);
+          c.Column(x => x.Sort).Header("排序号").Sortable(true);
+          c.Column(x => x.Status).Header("状态").Sortable(true).Dictionary("ItemStatus");
+          c.Column().Header("操作").Width(100).Partial("Operator").Align(Alignment.Center);
+      })
+)

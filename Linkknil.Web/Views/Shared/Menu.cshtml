@@ -1,0 +1,16 @@
+﻿@model System.Xml.Linq.XElement 
+  
+ <ul id="main-nav"> 
+@foreach (var x in Model.Elements()) { 
+	<li>
+		<a href='@x.Attribute("url").Value ' class='nav-top-item @x.Attribute("class").Value '>@x.Attribute("title").Value </a>
+		@if(x.HasElements){
+			<ul>
+			@foreach (var sub in x.Elements()) {  
+				<li><a href='@sub.Attribute("url").Value ' class='@sub.Attribute("class").Value '>@sub.Attribute("title").Value  </a></li>
+			} 
+			</ul>
+		}  
+	</li> 
+}  
+</ul> 

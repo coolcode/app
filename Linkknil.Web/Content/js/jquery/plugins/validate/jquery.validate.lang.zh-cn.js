@@ -1,0 +1,21 @@
+﻿$.validator.messages = {
+    required: "必填",
+    remote: "请输入这些项",
+    email: "请输入一个有效的email地址",
+    url: "请输入一个有效的Url地址",
+    date: "请输入一个有效的日期",
+    dateISO: "请输入一个有效的日期 (格式：年-月-日).",
+    dateDE: "Bitte geben Sie ein gültiges Datum ein.",
+    number: "请输入一个有效的数字",
+    numberDE: "Bitte geben Sie eine Nummer ein.",
+    digits: "只能输入数字",
+    creditcard: "请输入有效信用卡号码",
+    equalTo: "请再次输入相同的值",
+    accept: "请输入一个有效的扩展名.",
+    maxlength: $.format("最多能输入 {0} 个字符"),
+    minlength: $.format("请输入至少 {0} 个字符"),
+    rangelength: $.format("请输入从{0} 到 {1} 字符长度"),
+    range: $.format("请输入从 {0} 到 {1}."),
+    max: $.format("请输入一个值小于等于 {0}."),
+    min: $.format("请输入一个值大于等于 {0}.")
+};

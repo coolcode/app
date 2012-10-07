@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25F1ED96-52FD-4035-B2EC-A58A2E6DEEE7}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Linkknil.Web</RootNamespace>
+    <AssemblyName>Linkknil.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoolCode.Core">
+      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CoolCode.ServiceModel">
+      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.ServiceModel.dll</HintPath>
+    </Reference>
+    <Reference Include="CoolCode.Web.Mvc">
+      <HintPath>..\..\MvcFramework\bin\v2.0\debug\CoolCode.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.11\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Referencies\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20505.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20505.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20505.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ArchiveController.cs" />
+    <Compile Include="Controllers\CmsController.cs" />
+    <Compile Include="Controllers\AppCategoryController.cs" />
+    <Compile Include="Controllers\DeveloperController.cs" />
+    <Compile Include="Controllers\PendingAppController.cs" />
+    <Compile Include="Controllers\DictionaryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\AppController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CustomEntityWatcher.cs" />
+    <Compile Include="Models\HtmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Content Include="Archives\sample_css.html" />
+    <Content Include="Archives\sample2.html" />
+    <Content Include="Archives\sample.html" />
+    <Content Include="Archives\style\readability.css" />
+    <Content Include="Content\css\default\form.css" />
+    <Content Include="Content\css\default\images\gridview\sort_asc.gif" />
+    <Content Include="Content\css\default\images\gridview\sort_desc.gif" />
+    <Content Include="Content\css\default\images\site\add.png" />
+    <Content Include="Content\css\default\images\site\b.png" />
+    <Content Include="Content\css\default\images\site\bg-body.gif" />
+    <Content Include="Content\css\default\images\site\bg-button-green.gif" />
+    <Content Include="Content\css\default\images\site\bg-content-box.gif" />
+    <Content Include="Content\css\default\images\site\bg-form-field.gif" />
+    <Content Include="Content\css\default\images\site\bg-login-top.png" />
+    <Content Include="Content\css\default\images\site\bg-login.gif" />
+    <Content Include="Content\css\default\images\site\bg-menu-item-current.gif" />
+    <Content Include="Content\css\default\images\site\bg-menu-item-green.gif" />
+    <Content Include="Content\css\default\images\site\bg-radial-gradient.gif" />
+    <Content Include="Content\css\default\images\site\bg-sidebar.gif" />
+    <Content Include="Content\css\default\images\site\bl.png" />
+    <Content Include="Content\css\default\images\site\br.png" />
+    <Content Include="Content\css\default\images\site\checked.gif" />
+    <Content Include="Content\css\default\images\site\close.png" />
+    <Content Include="Content\css\default\images\site\cross_circle.png" />
+    <Content Include="Content\css\default\images\site\cross_grey_small.png" />
+    <Content Include="Content\css\default\images\site\exclamation.png" />
+    <Content Include="Content\css\default\images\site\feed.png" />
+    <Content Include="Content\css\default\images\site\information.png" />
+    <Content Include="Content\css\default\images\site\loading.gif" />
+    <Content Include="Content\css\default\images\site\menu-current-arrow.gif" />
+    <Content Include="Content\css\default\images\site\search.png" />
+    <Content Include="Content\css\default\images\site\shortcut-button-bg.gif" />
+    <Content Include="Content\css\default\images\site\tick_circle.png" />
+    <Content Include="Content\css\default\images\site\tl.png" />
+    <Content Include="Content\css\default\images\site\tr.png" />
+    <Content Include="Content\css\default\images\site\unchecked.gif" />
+    <Content Include="Content\css\default\invalid.css" />
+    <Content Include="Content\css\default\login.css" />
+    <Content Include="Content\css\default\reset.css" />
+    <Content Include="Content\css\default\site.css" />
+    <Content Include="Content\images\icons\checker.gif" />
+    <Content Include="Content\images\icons\clock_48.png" />
+    <Content Include="Content\images\icons\comment_48.png" />
+    <Content Include="Content\images\icons\cross.png" />
+    <Content Include="Content\images\icons\delete.png" />
+    <Content Include="Content\images\icons\hammer_screwdriver.png" />
+    <Content Include="Content\images\icons\image_add_48.png" />
+    <Content Include="Content\images\icons\new.png" />
+    <Content Include="Content\images\icons\pencil.png" />
+    <Content Include="Content\images\icons\pencil_48.png" />
+    <Content Include="Content\images\icons\refresh.png" />
+    <Content Include="Content\images\icons\write.png" />
+    <Content Include="Content\js\chart\jChart.js" />
+    <Content Include="Content\js\chart\SL.Visifire.Charts.xap" />
+    <Content Include="Content\js\chart\Visifire.js" />
+    <Content Include="Content\js\core\core.js" />
+    <Content Include="Content\js\core\grid.js" />
+    <Content Include="Content\js\jquery\jquery-vsdoc.js" />
+    <Content Include="Content\js\jquery\jquery.js" />
+    <Content Include="Content\js\jquery\jquery.min.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\calendar.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\config.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\DatePicker.htm" />
+    <Content Include="Content\js\jquery\plugins\datepicker\lang\en.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\lang\zh-cn.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\lang\zh-tw.js" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\datePicker.gif" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\default\datepicker.css" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\default\img.gif" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\WdatePicker.css" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Content\js\jquery\plugins\datepicker\skin\whyGreen\img.gif" />
+    <Content Include="Content\js\jquery\plugins\datepicker\WdatePicker.js" />
+    <Content Include="Content\js\jquery\plugins\editable\jquery.editable.js" />
+    <Content Include="Content\js\jquery\plugins\fancybox\blank.gif" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancybox-x.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancybox-y.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancybox.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_close.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_loading.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_nav_left.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_nav_right.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_title_left.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_title_main.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_title_over.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\fancy_title_right.png" />
+    <Content Include="Content\js\jquery\plugins\fancybox\jquery.easing.pack.js" />
+    <Content Include="Content\js\jquery\plugins\fancybox\jquery.fancybox.css" />
+    <Content Include="Content\js\jquery\plugins\fancybox\jquery.fancybox.js" />
+    <Content Include="Content\js\jquery\plugins\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="Content\js\jquery\plugins\fancybox\jquery.mousewheel.pack.js" />
+    <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmpl.js" />
+    <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmpl.min.js" />
+    <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmplPlus.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate-vsdoc.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate.lang.zh-cn.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate.min-vsdoc.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate.min.js" />
+    <Content Include="Content\js\jquery\plugins\validate\jquery.validate.zh-cn.js" />
+    <Content Include="Content\js\microsoft\MicrosoftAjax.debug.js" />
+    <Content Include="Content\js\microsoft\MicrosoftAjax.js" />
+    <Content Include="Content\js\microsoft\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Content\js\microsoft\MicrosoftMvcAjax.js" />
+    <Content Include="Content\js\microsoft\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Content\js\microsoft\MicrosoftMvcValidation.js" />
+    <Content Include="Content\js\site\form.js" />
+    <Content Include="Content\js\site\site.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\all.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\jquery.masonry.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Themes\default\site.css" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Pinterest-Demo\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\log.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\sitemap\Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dictionary\Edit.cshtml" />
+    <Content Include="Views\Dictionary\HeaderList.cshtml" />
+    <Content Include="Views\Dictionary\Index.cshtml" />
+    <Content Include="Views\Dictionary\ItemList.cshtml" />
+    <Content Include="Views\Dictionary\Operator.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\LogOn.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\App\Operator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Controls\_CreateButton.cshtml" />
+    <Content Include="Views\Shared\Controls\_DeleteButton.cshtml" />
+    <Content Include="Views\Shared\Controls\_Loading.cshtml" />
+    <Content Include="Views\Shared\Controls\_RefreshButton.cshtml" />
+    <Content Include="Views\Shared\Controls\_Toolbar.cshtml" />
+    <Content Include="Views\Shared\Menu.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Shared\Operator.cshtml" />
+    <Content Include="Views\Shared\_Default.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Form.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Note.cshtml" />
+    <Content Include="Views\Shared\_Site.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Archive\" />
+    <Folder Include="Views\Shared\EditorTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Linkknil.Services\Linkknil.Services.csproj">
+      <Project>{291D5138-7753-4109-89DA-409C1C43BA11}</Project>
+      <Name>Linkknil.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cms\Edit.cshtml" />
+    <Content Include="Views\Cms\Index.cshtml" />
+    <Content Include="Views\Cms\ItemList.cshtml" />
+    <Content Include="Views\Cms\Operator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppCategory\Edit.cshtml" />
+    <Content Include="Views\AppCategory\Index.cshtml" />
+    <Content Include="Views\AppCategory\ItemList.cshtml" />
+    <Content Include="Views\AppCategory\Operator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PendingApp\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PendingApp\ItemList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\PendingApp\Operator.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Developer\CreateApp.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Developer\AppList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Developer\AppDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Developer\EditLink.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\Controls\_Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\PendingDetails.cshtml" />
+    <Content Include="Views\App\PendingList.cshtml" />
+    <Content Include="Views\App\PublishList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\RejectList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\ContentIndex.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\App\ContentList.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>28581</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,10 @@
+﻿@(
+ Html.Grid<App>().Columns(c => {
+          c.Column(x => x.Id).CheckBox().Width(40);
+          c.Column(x => x.Name).Header("应用名称").Sortable(true);
+          c.Column(x => x.Dev).Header("开发者").Sortable(true);
+          c.Column(x => x.CreateTime).Header("创建时间").Sortable(true);
+          c.Column().Header("操作").Width(100).Partial("Operator").Align(Alignment.Center);
+      })
+      .Sort(defaultSort: "CreateTime Desc")
+)

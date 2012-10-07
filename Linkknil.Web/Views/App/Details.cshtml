@@ -1,0 +1,18 @@
+﻿@model App
+@{
+	Layout = "~/Views/Shared/_Form.cshtml";
+	ViewBag.Title = "查看应用";
+}
+
+	<div class="content-box">
+		<div class="content-box-header">
+			<h3>@ViewBag.Title</h3>
+			<div class="clear">
+			</div>
+		</div>
+        @Html.Partial("Controls/_Details", Model)
+	</div>
+} 
+
+@section script{
+}

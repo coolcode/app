@@ -1,0 +1,4 @@
+﻿ 
+
+@Html.ImageActionLink("/Content/images/icons/pencil.png", "编辑", "Edit", new { Id =  Model.Id, entity = "VirtualView" }, new { @class = "iframe", rel = "modal" })
+@Html.ImageActionLink("/Content/images/icons/cross.png", "删除", "Delete", new { Id = Model.Id, entity = "VirtualView" }, new { confirm = "确认删除这项数据吗？", rel = "ajax" })
