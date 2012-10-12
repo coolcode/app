@@ -3884,3 +3884,695 @@ Parameter name: linkText
    at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 21:35:33,024 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppList, RouteData:controller=Developer&action=AppList
+	
+System.InvalidOperationException: The properties expression 'c => Convert((c.Value == value(Linkknil.Models.LinkknilContext+AutoMigrationsConfiguration+<>c__DisplayClass6).item.Key))' is not valid. The expression should represent a property: C#: 't => t.MyProperty'  VB.Net: 'Function(t) t.MyProperty'. When specifying multiple properties use an anonymous type: C#: 't => new { t.MyProperty1, t.MyProperty2 }'  VB.Net: 'Function(t) New With { t.MyProperty1, t.MyProperty2 }'.
+   at System.Data.Entity.Migrations.Extensions.ExpressionExtensions.GetPropertyAccessList(LambdaExpression propertyAccessExpression)
+   at System.Data.Entity.Migrations.IDbSetExtensions.AddOrUpdate[TEntity](IDbSet`1 set, Expression`1 identifierExpression, TEntity[] entities)
+   at Linkknil.Models.LinkknilContext.AutoMigrationsConfiguration.Seed(LinkknilContext context) in C:\Products\git\app\Linkknil.Services\Models\LinkknilContext.cs:line 44
+   at System.Data.Entity.Migrations.DbMigrationsConfiguration`1.OnSeed(DbContext context)
+   at System.Data.Entity.Migrations.DbMigrator.SeedDatabase()
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Database.<>c__DisplayClass2`1.<SetInitializerInternal>b__0(DbContext c)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClass8.<PerformDatabaseInitialization>b__6()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Linkknil.Web.Controllers.DeveloperController.AppList(Int32 page) in C:\Products\git\app\Linkknil.Web\Controllers\DeveloperController.cs:line 60
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 21:56:22,017 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppList, RouteData:controller=Developer&action=AppList
+	
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.InvalidOperationException: There is already an open DataReader associated with this Command which must be closed first.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlConnection.ValidateConnectionForExecute(String method, SqlCommand command)
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at CoolCode.ServiceModel.Services.Implement.DictionaryService.GetDictionaryText(String dictionaryName, String key) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Services\Implement\DictionaryService.cs:line 64
+   at CoolCode.Web.Mvc.Html.DictionaryExtensions.<>c__DisplayClass1`1.<Dictionary>b__0(T instance) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Mvc\Html\DictionaryExtensions.cs:line 19
+   at CoolCode.Web.Mvc.UI.GridColumnBuilder`1.<>c__DisplayClass4.<Template>b__3(T c) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumnBuilder.cs:line 39
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.<GetValue>b__c(Object x) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 55
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.Template(Func`2 format, Object arg, Boolean htmlEncode) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 108
+   at CoolCode.Web.Mvc.UI.GridColumn`1.GetValue(GridRow row) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 58
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderCellValue(GridColumn`1 column, GridRow`1 rowData) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 81
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItem(GridRow`1 rowData) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 72
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItems() in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 59
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderTable() in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 49
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.Render(IGridView`1 gridModel, TextWriter output) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 36
+   at CoolCode.Web.Mvc.UI.GridView`1.Render(TextWriter writer) in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridView.cs:line 26
+   at CoolCode.Web.Mvc.UI.ViewComponent.ToHtmlString() in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponent.cs:line 133
+   at CoolCode.Web.Mvc.UI.ViewComponentBuilder`2.ToHtmlString() in C:\Products\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponentBuilder.cs:line 123
+   at System.Web.HttpUtility.HtmlEncode(Object value)
+   at System.Web.WebPages.WebPageBase.Write(Object value)
+   at ASP._Page_Views_Developer_AppList_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppList.cshtml:line 18
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:02:07,909 线程ID:[15] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppList, RouteData:controller=Developer&action=AppList
+	
+System.Web.HttpParseException (0x80004005): "<" is not valid at the start of a code block.  Only identifiers, keywords, comments, "(" and "{" are valid.
+
+   at System.Web.WebPages.Razor.RazorBuildProvider.EnsureGeneratedCode()
+   at System.Web.WebPages.Razor.RazorBuildProvider.get_CodeCompilerType()
+   at System.Web.Compilation.BuildProvider.GetCompilerTypeFromBuildProvider(BuildProvider buildProvider)
+   at System.Web.Compilation.BuildProvidersCompiler.ProcessBuildProviders()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:27:41,699 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails&id=6e067b16-4f1d-409b-bc6d-2f8c4a595dd8
+	
+System.InvalidOperationException: Sequence contains more than one element
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at System.Data.Entity.Migrations.IDbSetExtensions.AddOrUpdate[TEntity](DbSet`1 set, IEnumerable`1 identifyingProperties, TEntity[] entities)
+   at System.Data.Entity.Migrations.IDbSetExtensions.AddOrUpdate[TEntity](IDbSet`1 set, Expression`1 identifierExpression, TEntity[] entities)
+   at Linkknil.Models.LinkknilContext.AutoMigrationsConfiguration.Seed(LinkknilContext context) in C:\Products\git\app\Linkknil.Services\Models\LinkknilContext.cs:line 44
+   at System.Data.Entity.Migrations.DbMigrationsConfiguration`1.OnSeed(DbContext context)
+   at System.Data.Entity.Migrations.DbMigrator.SeedDatabase()
+   at System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   at System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   at System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   at System.Data.Entity.Database.<>c__DisplayClass2`1.<SetInitializerInternal>b__0(DbContext c)
+   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClass8.<PerformDatabaseInitialization>b__6()
+   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   at System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   at System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   at Linkknil.Web.Controllers.DeveloperController.AppDetails(String id) in C:\Products\git\app\Linkknil.Web\Controllers\DeveloperController.cs:line 71
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:33:13,743 线程ID:[9] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.ImageController, Action: UploadAppIcon, RouteData:controller=Image&action=UploadAppIcon
+	
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Products\git\app\Linkknil.Web\Upload\20121010223313-\vmware-host\Shared Folders\图片\IMG_0177.jpg'.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode)
+   at Linkknil.StreamStore.WebFileService.Save(String id, Stream stream) in C:\Products\git\app\Linkknil.StreamStore\WebFileService.cs:line 16
+   at Linkknil.Web.Controllers.ImageController.UploadAppIcon(String id) in C:\Products\git\app\Linkknil.Web\Controllers\ImageController.cs:line 27
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:35:56,444 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails
+	
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at ASP._Page_Views_Developer_AppDetails_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppDetails.cshtml:line 2
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:39:47,519 线程ID:[9] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails
+	
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at ASP._Page_Views_Developer_AppDetails_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppDetails.cshtml:line 2
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:43:01,942 线程ID:[9] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails
+	
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at CallSite.Target(Closure , CallSite , Object )
+   at ASP._Page_Views_Developer_AppDetails_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppDetails.cshtml:line 2
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:46:10,325 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails
+	
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at ASP._Page_Views_Developer_AppDetails_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppDetails.cshtml:line 2
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-10 22:48:22,399 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppDetails, RouteData:controller=Developer&action=AppDetails
+	
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: Cannot perform runtime binding on a null reference
+   at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at ASP._Page_Views_Developer_AppDetails_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppDetails.cshtml:line 2
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-11 17:21:35,522 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Home_Index_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml:line 53
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 12:35:56,091 线程ID:[10] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppList, RouteData:controller=Developer&action=AppList
+	
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.InvalidOperationException: There is already an open DataReader associated with this Command which must be closed first.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlConnection.ValidateConnectionForExecute(String method, SqlCommand command)
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at CoolCode.ServiceModel.Services.Implement.DictionaryService.GetDictionaryText(String dictionaryName, String key) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Services\Implement\DictionaryService.cs:line 64
+   at CoolCode.Web.Mvc.Html.DictionaryExtensions.<>c__DisplayClass1`1.<Dictionary>b__0(T instance) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Mvc\Html\DictionaryExtensions.cs:line 19
+   at CoolCode.Web.Mvc.UI.GridColumnBuilder`1.<>c__DisplayClass4.<Template>b__3(T c) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumnBuilder.cs:line 39
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.<GetValue>b__c(Object x) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 55
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.Template(Func`2 format, Object arg, Boolean htmlEncode) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 108
+   at CoolCode.Web.Mvc.UI.GridColumn`1.GetValue(GridRow row) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 58
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderCellValue(GridColumn`1 column, GridRow`1 rowData) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 81
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItem(GridRow`1 rowData) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 72
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItems() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 59
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderTable() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 49
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.Render(IGridView`1 gridModel, TextWriter output) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 36
+   at CoolCode.Web.Mvc.UI.GridView`1.Render(TextWriter writer) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridView.cs:line 26
+   at CoolCode.Web.Mvc.UI.ViewComponent.ToHtmlString() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponent.cs:line 133
+   at CoolCode.Web.Mvc.UI.ViewComponentBuilder`2.ToHtmlString() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponentBuilder.cs:line 123
+   at System.Web.HttpUtility.HtmlEncode(Object value)
+   at System.Web.WebPages.WebPageBase.Write(Object value)
+   at ASP._Page_Views_Developer_AppList_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppList.cshtml:line 18
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 12:36:31,498 线程ID:[9] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.DeveloperController, Action: AppList, RouteData:controller=Developer&action=AppList
+	
+System.Data.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> System.InvalidOperationException: There is already an open DataReader associated with this Command which must be closed first.
+   at System.Data.SqlClient.SqlInternalConnectionTds.ValidateConnectionForExecute(SqlCommand command)
+   at System.Data.SqlClient.SqlConnection.ValidateConnectionForExecute(String method, SqlCommand command)
+   at System.Data.SqlClient.SqlCommand.ValidateCommand(String method, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- End of inner exception stack trace ---
+   at System.Data.EntityClient.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Objects.ObjectQuery`1.System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[S](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at CoolCode.ServiceModel.Services.Implement.DictionaryService.GetDictionaryText(String dictionaryName, String key) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Services\Implement\DictionaryService.cs:line 64
+   at CoolCode.Web.Mvc.Html.DictionaryExtensions.<>c__DisplayClass1`1.<Dictionary>b__0(T instance) in C:\Products\MvcFramework\src\CoolCode.ServiceModel\Mvc\Html\DictionaryExtensions.cs:line 19
+   at CoolCode.Web.Mvc.UI.GridColumnBuilder`1.<>c__DisplayClass4.<Template>b__3(T c) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumnBuilder.cs:line 39
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.<GetValue>b__c(Object x) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 55
+   at CallSite.Target(Closure , CallSite , Func`2 , Object )
+   at CoolCode.Web.Mvc.UI.GridColumn`1.Template(Func`2 format, Object arg, Boolean htmlEncode) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 108
+   at CoolCode.Web.Mvc.UI.GridColumn`1.GetValue(GridRow row) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridColumn.cs:line 58
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderCellValue(GridColumn`1 column, GridRow`1 rowData) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 81
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItem(GridRow`1 rowData) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 72
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderItems() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 59
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.RenderTable() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 49
+   at CoolCode.Web.Mvc.UI.BaseGridViewRenderer`1.Render(IGridView`1 gridModel, TextWriter output) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\BaseGridViewRenderer.cs:line 36
+   at CoolCode.Web.Mvc.UI.GridView`1.Render(TextWriter writer) in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\Grid\GridView.cs:line 26
+   at CoolCode.Web.Mvc.UI.ViewComponent.ToHtmlString() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponent.cs:line 133
+   at CoolCode.Web.Mvc.UI.ViewComponentBuilder`2.ToHtmlString() in C:\Products\git\MvcFramework\src\CoolCode.Web.Mvc\UI\ViewComponentBuilder.cs:line 123
+   at System.Web.HttpUtility.HtmlEncode(Object value)
+   at System.Web.WebPages.WebPageBase.Write(Object value)
+   at ASP._Page_Views_Developer_AppList_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Developer\AppList.cshtml:line 18
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 14:37:15,386 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Home_Index_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml:line 53
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 15:52:03,103 线程ID:[30] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.AppController, Action: Pull, RouteData:controller=App&action=Pull&id=4def6693-8f0d-4a31-8d54-9bcc44445c8a
+	
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+   at Linkknil.Web.Controllers.AppController.Pull(String id) in C:\Products\git\app\Linkknil.Web\Controllers\AppController.cs:line 125
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 16:47:52,528 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.Data.SqlClient.SqlException (0x80131904): '，' 附近有语法错误。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at CoolCode.Data.SqlMapper.<QueryInternal>d__d`1.MoveNext() in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\SqlMapper.cs:line 744
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at CoolCode.Data.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\SqlMapper.cs:line 703
+   at CoolCode.Data.Entity.DbContextExtensions.<>c__DisplayClass7`1.<Query>b__6(DbConnection cnn) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 43
+   at CoolCode.Data.Entity.DbContextExtensions.Do[TResult](DbContext db, Func`2 func) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 57
+   at CoolCode.Data.Entity.DbContextExtensions.Query[T](DbContext db, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 43
+   at Linkknil.Web.Controllers.ArchiveController.QueryContent(DateTime next) in C:\Products\git\app\Linkknil.Web\Controllers\ArchiveController.cs:line 62
+   at Linkknil.Web.Controllers.ArchiveController.Top() in C:\Products\git\app\Linkknil.Web\Controllers\ArchiveController.cs:line 35
+   at Linkknil.Web.Controllers.HomeController.Index() in C:\Products\git\app\Linkknil.Web\Controllers\HomeController.cs:line 20
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 16:49:21,628 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.Web.HttpCompileException (0x80004005): c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml(64): error CS1061: 'Linkknil.Entities.ContentViewModel' does not contain a definition for 'IconPath' and no extension method 'IconPath' accepting a first argument of type 'Linkknil.Entities.ContentViewModel' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 16:50:13,964 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.Web.HttpCompileException (0x80004005): c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml(64): error CS1061: 'Linkknil.Entities.ContentViewModel' does not contain a definition for 'IconPath' and no extension method 'IconPath' accepting a first argument of type 'Linkknil.Entities.ContentViewModel' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 16:50:38,747 线程ID:[6] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.Web.HttpCompileException (0x80004005): c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml(64): error CS1061: 'Linkknil.Entities.ContentViewModel' does not contain a definition for 'IconPath' and no extension method 'IconPath' accepting a first argument of type 'Linkknil.Entities.ContentViewModel' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-12 17:30:17,606 线程ID:[60] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/pd/,xpath://div[@class="conList"]/div/h2/a[@href],Id:671f595c-9307-4583-a73e-1a13c8b083a7) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.__Error.StreamIsClosed()
+   at System.IO.MemoryStream.set_Position(Int64 value)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 13
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 61
+---> (Inner Exception #0) System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.__Error.StreamIsClosed()
+   at System.IO.MemoryStream.set_Position(Int64 value)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-12 17:30:17,615 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/it,xpath://div[@class="conList"]/div/h2/a[@href],Id:be38648b-5d59-425a-9250-9127198506c6) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.__Error.StreamIsClosed()
+   at System.IO.MemoryStream.set_Position(Int64 value)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 13
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 61
+---> (Inner Exception #0) System.ObjectDisposedException: Cannot access a closed Stream.
+   at System.IO.__Error.StreamIsClosed()
+   at System.IO.MemoryStream.set_Position(Int64 value)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+

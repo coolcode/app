@@ -17,10 +17,9 @@ namespace Linkknil.Web.Controllers {
         #endregion
 
         [HttpGet]
-        public ActionResult CreateApp()
-        {
+        public ActionResult CreateApp() {
             ViewBag.AppCategories = db.AppCategories
-                .Where(c=>c.Status== (int) ItemStatus.Enabled )
+                .Where(c => c.Status == (int)ItemStatus.Enabled)
                 .ToList()
                 .Select(c => new ValueText(c.Id, c.Name));
 
@@ -56,7 +55,27 @@ namespace Linkknil.Web.Controllers {
             return this.Success();
         }
 
-        public ActionResult AppList(int page=0) {
+        public ActionResult SubmitApp(string id) {
+            var app = db.Apps.Find(id);
+            app.Status = (int)AppStatus.Pending;
+
+            db.Entry(app).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return this.Success();
+        }
+
+        public ActionResult OffApp(string id) {
+            var app = db.Apps.Find(id);
+            app.Status = (int) AppStatus.Offline;
+
+            db.Entry(app).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return this.Success();
+        }
+
+        public ActionResult AppList(int page = 0) {
             var q = from c in db.Apps
                     where c.DeveloperId == UserID
                     orderby c.CreateTime descending
@@ -89,9 +108,7 @@ namespace Linkknil.Web.Controllers {
             model.Id = Guid.NewGuid().ToString();
             model.CreateTime = DateTime.Now;
 
-            //编辑内容源需要重新审核
-            var app = db.Apps.Find(appId);
-            app.Status = (int)AppStatus.Pending;
+            UpdateAppStatusWhenLinkItemChanged(appId);
 
             db.Links.Add(model);
             db.SaveChanges();
@@ -112,14 +129,21 @@ namespace Linkknil.Web.Controllers {
             TryUpdateModel(model);
             model.UpdateTime = DateTime.Now;
 
-            //编辑内容源需要重新审核
-            var app = db.Apps.Find(appId);
-            app.Status = (int)AppStatus.Pending;
-
+            UpdateAppStatusWhenLinkItemChanged(appId);
             db.Entry(model).State = EntityState.Modified;
-            db.SaveChanges();
 
+            db.SaveChanges();
             return this.Success();
+        }
+
+        //编辑内容源需要重新审核
+        private void UpdateAppStatusWhenLinkItemChanged(string appId) {
+            var app = db.Apps.Find(appId);
+
+            if (app.Status == (int)AppStatus.Publish) {
+                app.Status = (int)AppStatus.Pending;
+
+            }
         }
     }
 }

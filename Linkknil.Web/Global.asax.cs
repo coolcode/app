@@ -6,6 +6,7 @@ using Linkknil.Models;
 using Linkknil.Razor.Models;
 using Ninject;
 using System.Data.Entity;
+using Linkknil.StreamStore;
 
 namespace Linkknil.Web {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -22,13 +23,15 @@ namespace Linkknil.Web {
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
+            JobConfig.RegisterJobs();
         }
 
         private static void RegisterDependencies() {
             IKernel kernel = new StandardKernel(new DefaultModule());
             kernel.Rebind<DbContext>().To<LinkknilContext>();
             kernel.Rebind<IEntityWatcher>().To<CustomEntityWatcher>();
+            kernel.Bind<IFileService>().To<AliyunFileService>();
+            //kernel.Rebind<IFileService>().To<WebFileService>();
             DependencyResolver.SetResolver(new NInjectDependencyResolver(kernel));
         }
     }

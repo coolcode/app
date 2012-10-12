@@ -25,6 +25,7 @@ $(window).resize(function () {
     resort();
 });
 
+var __lastIndex__ = "!@#";
 $(window).scroll(function () {
     var o = $('#masonry');
 
@@ -34,71 +35,39 @@ $(window).scroll(function () {
 
         //获取网页的完整高度(fix)
         var hght = window.scrollHeight;
-        //alert(hght);
 
         var srollPos = $(window).scrollTop();    //滚动条距顶部距离(页面超出窗口的高度)
         var dbHiht = $("body").height();          //页面(约等于窗体)高度/单位px
         var mainHiht = o.height();               //主体元素高度/单位px
 
-        var text = "Top:" + ($(window).scrollTop());
-        text += ",Body:" + dbHiht;
-        text += ",Main:" + mainHiht;
-        text += ",Document:" + $(document).height();
-        text += ",Window:" + $(window).height();
-        text += ",Diff:" + ($(document).height() - $(window).height() - srollPos);
-
-        $(".displayText").text(text);
-
         if (($(document).height() - $(window).height() - srollPos) > 50) {
             return;
         }
 
+        //避免重复提交
+        if (__lastIndex__ == o.attr("index")) {
+            return;
+        }
+
+        __lastIndex__ = o.attr("index");
         show();
 
         return;
-        //获取浏览器高度(fix)
-        var clientHeight = window.clientHeight;
-        //alert(clientHeight);
-
-        //获取网页滚过的高度(dynamic)
-        var top = window.pageYOffset ||
-                        (document.compatMode == 'CSS1Compat' ?
-                        document.documentElement.scrollTop :
-                        document.body.scrollTop);
-
-
-
-        //当 top+clientHeight = scrollHeight的时候就说明到底儿了
-        if (top >= (parseInt(hght) - clientHeight)) {
-            show();
-        }
 
     }
 });
 
-//我所要执行的操作是把ajax取得的数据塞到目标div中
 function show() {
-    //alert(1);
     var target = $('#masonry');
 
     if (!target) { return false; }
 
-    //一般你都要记录一下你的数据的录入状态，比如到当前显示页码
-    var current_page = parseInt(target.attr('index'));
-
-    if(!current_page){
-        current_page = 1;
-    }
-
-    //还要记录一个最大显示页码，以阻止请求溢出
-    var max_page = parseInt(target.attr('maxPages'))|| 100;
-    if (current_page >= max_page) {
-         alert("超出最大页限制！");
+    if (target.attr("nomore")==1) {
         return false;
     }
 
     var data = {};
-    data.nextPage = parseInt(current_page) + 1;
+    data.next = target.attr("index");
 
 
     var currentHref = window.location;
@@ -117,47 +86,45 @@ function show() {
     // ajax请求数据
     jQuery.ajax({
         type: "POST",
-        url: "/Home/Lazyload",
+        url: "/Archive/Lazyload",
         data: data,
         dataType: "json",
+        cache:false,
         beforeSend: function (XMLHttpRequest) {
             $("#loading").css('display', '');
         },
-        success: function (data) {
+        success: function (r) {
+        var data = r.Items;
         var html="";
             for (var i = 0, length = data.length; i < length; i++) {
                 var item = data[i];
                 html += "<div class='item'>" +
-              "<img height='" + item.height + "px' src='" + item.src + "' width='" + item.width + "px' alt='' />" +
-              "<h2 class='lipsum'></h2>" +
-              "<div class='comments'>ladsflasdf" +
-              "</div>" +
-              "<div class='chat'>" +
-                "<div class='chatbox'>" +
-                  "<img height='30px' src='/image/format/30x30/798dc3/15237a_text=voluptatem' width='30px' alt='' />" +
-                  "<b>inn Lloyd</b>" +
-                  "via" +
-                  "<b>Kerry Beasley</b>" +
-                  "onto" +
-                "</div>" +
-              "</div>" +
-            "</div>";
-
+                        "<h2 class='title'>"+
+                           "<a href='/p/"+ item.Id + "' target='_blank'>" + item.Title+ "</a>" + 
+                        "</h2>"+
+                        "<div class='comments'>"+
+                            item.Summary+
+                        "</div>" +
+                        "<div class='chat'>"+
+                            "<div class='chatbox'>" +
+                            "<img src='/Image/AppIcon/"+ item.IconPath+"' width='50px' height='50px' alt='' />"+
+                            "<b>"+item.Author + "</b><p>发布于"+ item.PublishTimeText + "</p>"+
+                            "</div>"+
+                        "</div>"+
+                    "</div>";
             }
 
             
             var box = $(html);
             target.append(box).masonry('appended',box,true);
-            //$(html).appendTo(target);
 
-           // alert(123);
-
-            target.attr('index', parseInt(current_page) + 1);
+            target.attr('index', r.LastIndex);
+            target.attr('nomore', r.Count==0?1:0);
 
             $("#loading").css('display', 'none');
         },
         error: function () {
-            alert("加载失败");
+           // alert("加载失败");
         }
     });
 

@@ -33,6 +33,9 @@ namespace Linkknil.Entities {
         [MaxLength(50), Column(TypeName = "nvarchar")]
         public string Tag { get; set; }
 
+        [MaxLength(1000), Column(TypeName = "varchar")]
+        public string IconPath { get; set; }
+
         public int Status { get; set; }
 
         public DateTime CreateTime { get; set; }

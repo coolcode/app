@@ -7,6 +7,7 @@ using CoolCode.Linq;
 using Linkknil.Entities;
 using CoolCode.Web.Mvc;
 using CoolCode.ServiceModel.Mvc;
+using Linkknil.Services;
 
 namespace Linkknil.Web.Controllers {
     [Authorize]
@@ -111,8 +112,19 @@ namespace Linkknil.Web.Controllers {
             var q = from c in db.Contents
                     select new { c.Id, c.Url, c.Title, c.Text, c.BeginTime, c.EndTime, c.TimeSpan };
 
+            q = QueryItems(q);
+
             return View(q);
         }
 
+
+        public ActionResult Pull(string id)
+        {
+            var linkService = new LinkService();
+            var link = db.Links.Find(id);
+                linkService.DigLink(link);
+
+            return this.Success("抓取成功！");
+        }
     }
 }

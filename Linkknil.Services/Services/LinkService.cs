@@ -7,12 +7,14 @@ using CoolCode.ServiceModel.Services;
 using Linkknil.Entities;
 using Linkknil.Models;
 using NReadability;
+using System.Threading.Tasks;
 
 namespace Linkknil.Services {
     public class LinkService : ServiceBase {
-        protected new LinkknilContext db = new LinkknilContext();//{ get { return (LinkknilContext)base.db; } }
+        protected new LinkknilContext db { get { return base.db as LinkknilContext ?? new LinkknilContext(); } }
         private PullService pullService = new PullService();
 
+        /*
         public LinkService() {
             LinkknilContext.SetInitializer();
             var pf = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff");
@@ -21,66 +23,81 @@ namespace Linkknil.Services {
             //db.AppCategories.Add(new AppCategory { Id = pf + "3", Name = "Rose" });
             db.SaveChanges();
         }
-
-        public void DigLink() {
+        */
+        public void DigLinks() {
             //查找未进行Dig的链接
             var links = GetUnhandledLinks(10, DateTime.Now.AddMinutes(1));//半小时
 
             //遍历每个链接
-            foreach (var link in links) {
-                var dig = new DigLink {
-                    Id = Guid.NewGuid().ToString(),
-                    LinkId = link.Id,
-                    BeginTime = DateTime.Now,
-                    Status = (int)LinkStatus.Diging,
-                    DuplicateNum = 0,
-                    DigNum = 0,
-                    FailNum = 0
-                };
-                try {
-                    //链接状态设置成处理中
-                    UpdateLinkStatusToHandle(link.Id);
+            Parallel.ForEach(links, DigLink);
+            //foreach (var link in links) {
+            //    DigLink(link);
+            //}
+        }
 
-                    //读取链接里匹配的内容源url
-                    var digLinks = pullService.PullLink(link.Url, link.XPath);
+        public void DigLink(LinkItem link) {
+            var dig = new DigLink {
+                Id = Guid.NewGuid().ToString(),
+                LinkId = link.Id,
+                BeginTime = DateTime.Now,
+                Status = (int)LinkStatus.Diging,
+                DuplicateNum = 0,
+                DigNum = 0,
+                FailNum = 0
+            };
+            try {
+                //链接状态设置成处理中
+                UpdateLinkStatusToHandle(link.Id);
 
-                    foreach (var digLink in digLinks) {
-                        dig.DigNum++;
-                        //从网络抓取内容放入Content表
-                        var pullStatus = PullStatus.Fail;
-                        try {
-                            pullStatus = PullContent(link, digLink);
-                        }
-                        catch (Exception ex) {
-                            Logger.Error("抓取Html内容到数据表发生错误！url:" + digLink.Url, ex);
-                        }
+                var digLinks = Enumerable.Empty<Link>();
+                //读取链接里匹配的内容源url
+                switch (link.PullType) {
+                    case "rss":
+                        var rssService = new RssService();
+                        digLinks = rssService.PullLink(link.Url);
+                        break;
+                    case "xpath":
+                    default:
+                        digLinks = pullService.PullLink(link.Url, link.XPath);
+                        break;
+                }
 
-                        switch (pullStatus) {
-                            case PullStatus.Fail:
-                                dig.FailNum++;
-                                break;
-                            case PullStatus.Duplicate:
-                                dig.DuplicateNum++;
-                                break;
-                        }
+                foreach (var digLink in digLinks) {
+                    dig.DigNum++;
+                    //从网络抓取内容放入Content表
+                    var pullStatus = PullStatus.Fail;
+                    try {
+                        pullStatus = PullContent(link, digLink);
+                    }
+                    catch (Exception ex) {
+                        Logger.Error("抓取Html内容到数据表发生错误！url:" + digLink.Url, ex);
+                    }
 
-                        if (pullStatus == PullStatus.Success) {
-                            //内容源url、title根据PushTarget确认目标放入Push表
-                            SaveLinkToPush(digLink);
-                        }
+                    switch (pullStatus) {
+                        case PullStatus.Fail:
+                            dig.FailNum++;
+                            break;
+                        case PullStatus.Duplicate:
+                            dig.DuplicateNum++;
+                            break;
+                    }
+
+                    if (pullStatus == PullStatus.Success) {
+                        //内容源url、title根据PushTarget确认目标放入Push表
+                        SaveLinkToPush(digLink);
                     }
                 }
-                catch (Exception ex) {
-                    //Log错误
-                    LogError(link, ex);
-                }
-                finally {
-                    //设置链接状态处理完成
-                    dig.EndTime = DateTime.Now;
-                    dig.TimeSpan = (int)(dig.EndTime - dig.BeginTime).Value.TotalSeconds;
-                    dig.Status = (int)LinkStatus.Enabled;
-                    UpdateLinkStatusToDone(link.Id, dig);
-                }
+            }
+            catch (Exception ex) {
+                //Log错误
+                LogError(link, ex);
+            }
+            finally {
+                //设置链接状态处理完成
+                dig.EndTime = DateTime.Now;
+                dig.TimeSpan = (int)(dig.EndTime - dig.BeginTime).Value.TotalSeconds;
+                dig.Status = (int)LinkStatus.Enabled;
+                UpdateLinkStatusToDone(link.Id, dig);
             }
         }
 
@@ -90,9 +107,9 @@ namespace Linkknil.Services {
                    string.Format(@"select top {0} l.* from Lnk_Link l
 where l.Status = 1 --启用
 and ISNULL(l.HandleTime,'1999-9-9') < @HandleTime -- 上次处理时间区间未超出
-and exists(select null from PF_App a where a.Id = l.AppId and a.Status = 1) --App状态是启用
+and exists(select null from PF_App a where a.Id = l.AppId and a.Status = @Status) --App状态是启用
 order by ISNULL(l.HandleTime,'1999-9-9')", count),
-                    new { HandleTime = handleTime });
+                    new { HandleTime = handleTime, Status =(int)AppStatus.Publish });
         }
 
         private void UpdateLinkStatusToHandle(string linkId) {
@@ -143,7 +160,7 @@ order by ISNULL(l.HandleTime,'1999-9-9')", count),
         }
 
         private void SaveLinkToPush(Link digLink) {
-            var isPush = db.Exists(@"select top 1 1 from Lnk_Push where Url = @Url", new{digLink.Url});
+            var isPush = db.Exists(@"select top 1 1 from Lnk_Push where Url = @Url", new { digLink.Url });
 
             if (isPush) {
                 return;

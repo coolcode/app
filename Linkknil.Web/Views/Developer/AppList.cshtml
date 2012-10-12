@@ -22,15 +22,16 @@
         c.Column(x => x.Status).Header("状态").Width(50).Align(Alignment.Center).Sortable(true).Dictionary("AppStatus");
         c.Column().Header("操作").Width(150).Align(Alignment.Center).Template(
             @<text>
+                            @Html.ActionLink("设置内容源", "AppDetails", new { id = item.Id }, new { @class = "iframe", rel = "modal" })  
+                            |
                 @switch ((AppStatus)item.Status) {
                         case AppStatus.Draft:
                         case AppStatus.Reject:
-                            @Html.ActionLink("设置内容源", "AppDetails", new { id = item.Id }, new { @class = "iframe", rel = "modal" })  <text>|</text>
-                            @Html.ActionLink("提交审核", "SubmitApp", new { id = item.Id })  <text>|</text>
+                            @Html.ActionLink("提交审核", "SubmitApp", new { id = item.Id }, new { rel="ajax"})  <text>|</text>
                             @Html.DeleteLink("DeleteApp", new { id = item.Id })
                        break;
                         case AppStatus.Publish: 
-                            @Html.ActionLink("下线", "OffApp", new { id = item.Id }) 
+                            @Html.ActionLink("下线", "OffApp", new { id = item.Id }, new { rel="ajax"}) 
                        break;
                     }
             </text>);
@@ -38,25 +39,7 @@
     .Sort(defaultSort: "CreateTime Desc")
     .Ajax(isAjax:false)
 ) 
-           @* @foreach (App item in Model) {
-                <div>
-                    <p>@Html.ActionLink(item.Name, "EditApp", new { id = item.Id }, new { @class = "iframe", rel = "modal" })</p>
-                    <p>@item.Intro</p>
-                    <p>@Html.DictionaryText("AppStatus", item.Status.ToString())</p>
-                    @switch ((AppStatus)item.Status) {
-                        case AppStatus.Draft:
-                        case AppStatus.Reject:
-                            @Html.ActionLink("设置内容源", "AppDetails", new { id = item.Id }, new { @class = "iframe", rel = "modal" })  
-                            @Html.ActionLink("提交审核", "SubmitApp", new { id = item.Id })  
-                            @Html.DeleteLink("DeleteApp", new { id = item.Id })
-                       break;
-                        case AppStatus.Publish: 
-                            @Html.ActionLink("下线", "OffApp", new { id = item.Id }) 
-                       break;
-                    }
-                </div>
-            }
-            @Html.Pager(Model)*@
+           
             <div class="clear">
             </div>
         </div>

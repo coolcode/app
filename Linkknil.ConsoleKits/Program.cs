@@ -5,21 +5,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Linkknil.Services;
+using Linkknil.StreamStore;
 using NReadability;
 
-namespace Linkknil.ConsoleKits
-{
-    class Program
-    {
-        class UrlPattern
-        {
-            public UrlPattern()
-            {
+namespace Linkknil.ConsoleKits {
+    class Program {
+        class UrlPattern {
+            public UrlPattern() {
 
             }
 
-            public UrlPattern(string url, string pattern)
-            {
+            public UrlPattern(string url, string pattern) {
                 this.Url = url;
                 this.Pattern = pattern;
             }
@@ -30,26 +26,34 @@ namespace Linkknil.ConsoleKits
 
         static void Main(string[] args)
         {
-/*
-            var rurl = "http://www.cnblogs.com/coolcode/archive/2012/09/26/beautiful_voice.html";
-            var nReadabilityTranscoder = new NReadabilityWebTranscoder();
-            var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(rurl));
-            Console.WriteLine("Title:{0} \nContent:{1}",transResult.ExtractedTitle,transResult.ExtractedContent);
-
-            if (transResult.ContentExtracted) {
-
-                File.WriteAllText(
-                  Path.Combine(Directory.GetCurrentDirectory(), string.Format("SampleOutput_{0:yyyyMMddHHmmss}.html", DateTime.Now)),
-                  transResult.ExtractedContent,
-                  Encoding.UTF8);
-            }
+            RssServiceTest();
+            //AliyunFileServiceTest();
+            //var store = new NavenStore();
+            //store.SaveFile();
+            Console.WriteLine("ok");
+            Console.Read();
 
             return;
-            */
+            /*
+                        var rurl = "http://www.cnblogs.com/coolcode/archive/2012/09/26/beautiful_voice.html";
+                        var nReadabilityTranscoder = new NReadabilityWebTranscoder();
+                        var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(rurl));
+                        Console.WriteLine("Title:{0} \nContent:{1}",transResult.ExtractedTitle,transResult.ExtractedContent);
+
+                        if (transResult.ContentExtracted) {
+
+                            File.WriteAllText(
+                              Path.Combine(Directory.GetCurrentDirectory(), string.Format("SampleOutput_{0:yyyyMMddHHmmss}.html", DateTime.Now)),
+                              transResult.ExtractedContent,
+                              Encoding.UTF8);
+                        }
+
+                        return;
+                        */
             var linkService = new LinkService();
             //linkService.PushLink();
 
-            linkService.DigLink();
+            linkService.DigLinks();
 
             return;
             //var links = linkService.QueryLinks();
@@ -100,8 +104,7 @@ new UrlPattern("http://www.yixieshi.com/it","//div[@class=\"conList\"]/div/h2/a[
 
 };
 
-            foreach (var urlPattern in urlPatterns)
-            {
+            foreach (var urlPattern in urlPatterns) {
                 var sourceUrl = urlPattern.Url;
                 var xpath = urlPattern.Pattern;
 
@@ -110,17 +113,15 @@ new UrlPattern("http://www.yixieshi.com/it","//div[@class=\"conList\"]/div/h2/a[
                 var mainUrl = string.Format("{0}://{1}:{2}", ur.Scheme, ur.Host, ur.Port);
 
                 var urls = urlPullService.PullLink(sourceUrl, xpath);
-                var result = PushToReadability(urls.Select(c=>c.Url), mainUrl, readabilityService);
+                var result = PushToReadability(urls.Select(c => c.Url), mainUrl, readabilityService);
 
                 success += result.SuccessCount;
                 fail += result.FailCount;
                 duplicate += result.DuplicateCount;
 
-                if(result.FailCount>0)
-                {
+                if (result.FailCount > 0) {
                     Console.WriteLine("重试推送下列url：");
-                    foreach (var url in result.FailUrls)
-                    {
+                    foreach (var url in result.FailUrls) {
                         Console.WriteLine(url);
                     }
 
@@ -138,37 +139,69 @@ new UrlPattern("http://www.yixieshi.com/it","//div[@class=\"conList\"]/div/h2/a[
             Console.Read();
         }
 
-        private static PushResult PushToReadability(IEnumerable<string> urls, string mainUrl, ReadabilityService readabilityService)
+        private static void RssServiceTest()
         {
+            var url = "http://www.leiphone.com/feed";
+            var rss = new RssService();
+            var links = rss.PullLink(url);
+            foreach (var link in links)
+            {
+                Console.WriteLine("{0}: {1}",link.Title, link.Url);
+            }
+        }
+
+        private static void AliyunFileServiceTest() {
+            FileServiceTest(new AliyunFileService());
+        }
+
+        private static void FileServiceTest(IFileService fileService) {
+
+            var file = File.ReadAllBytes("a.jpg");
+            Stream stream = new MemoryStream(file);
+            var id = DateTime.Now.ToFileTime().ToString();
+
+            fileService.Save(id, stream);
+
+            var fileStream = fileService.Get(id);
+
+            var reader = new BinaryReader(fileStream);
+
+            byte[] byData = new byte[1024];
+            int i = 0;
+            int len;
+            var r = new FileStream(id + ".jpg", FileMode.OpenOrCreate);
+            while ((len = reader.Read(byData, 0, 1024)) > 0) {
+                r.Write(byData, 0, len);
+                i += len;
+            }
+
+            r.Close();
+        }
+
+        private static PushResult PushToReadability(IEnumerable<string> urls, string mainUrl, ReadabilityService readabilityService) {
             var pushResult = new PushResult();
 
-            foreach (var url in urls)
-            {
-                try
-                {
+            foreach (var url in urls) {
+                try {
                     var u = url;
-                    if (!url.StartsWith("http:"))
-                    {
+                    if (!url.StartsWith("http:")) {
                         u = mainUrl + "/" + url;
                     }
 
                     var result = readabilityService.Bookmark(u);
                     Console.WriteLine("Success To Read:{0}", u);
-                    pushResult.SuccessCount ++;
+                    pushResult.SuccessCount++;
                 }
-                catch (Exception ex)
-                {
+                catch (Exception ex) {
                     Console.WriteLine("Fail To Read:{0},{1}", url, ex.Message);
 
-                    if (ex.Message.Contains("(404)"))
-                    {
+                    if (ex.Message.Contains("(404)")) {
                         pushResult.FailUrls.Add(url);
                     }
-                    else if (ex.Message.Contains("(409)"))
-                    {
+                    else if (ex.Message.Contains("(409)")) {
                         pushResult.DuplicateUrls.Add(url);
-                    } 
-                    
+                    }
+
                 }
             }
 
@@ -176,18 +209,16 @@ new UrlPattern("http://www.yixieshi.com/it","//div[@class=\"conList\"]/div/h2/a[
         }
     }
 
-    public class PushResult
-    {
+    public class PushResult {
         public int SuccessCount { get; set; }
         public int FailCount { get { return FailUrls.Count; } }
         public int DuplicateCount { get { return DuplicateUrls.Count; } }
         public IList<string> FailUrls { get; private set; }
-        public IList<string> DuplicateUrls { get;private set; }
+        public IList<string> DuplicateUrls { get; private set; }
 
-        public PushResult()
-        {
+        public PushResult() {
             FailUrls = new List<string>();
-            DuplicateUrls =new List<string>();
+            DuplicateUrls = new List<string>();
         }
     }
 }

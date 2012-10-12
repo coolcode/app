@@ -1,0 +1,27 @@
+﻿html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}body{line-height:1}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th,td{text-align:left;font-weight:normal;vertical-align:middle}q,blockquote{quotes:none}q:before,q:after,blockquote:before,blockquote:after{content:"";content:none}a img{border:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}body{background:#f5f2f2;font-family:"helvetica neue", sans-serif;font-size:13px;color:#444;padding-top:150px}a{color:#369}.text-shadow,#hd .logo ul,#hd nav{text-shadow:0 1px 0 white}.wrapper{width:960px;margin:0 auto;position:relative}#hd{background:#faf7f7;position:fixed;z-index:100;top:0;left:0;width:100%;-moz-box-shadow:0 0 5px rgba(0,0,0,0.7);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.7);-o-box-shadow:0 0 5px rgba(0,0,0,0.7);box-shadow:0 0 5px rgba(0,0,0,0.7)}#hd .logo{padding:7px 0;border-bottom:1px solid rgba(0,0,0,0.2)}#hd .logo h1{color:DarkRed;width:400px;height:50px;margin:0 auto;text-align:center;font-size:25px;line-height:50px;font-family:"Zapfino", "Lucida Handwriting", georgia, serif;}#hd .logo h1 a{position:relative;top:10px;color:DarkRed;color:inherit;text-decoration:inherit;cursor:inherit;text-shadow:0 1px 0 #fff,0 5px 10px rgba(0,0,0,0.125)}#hd .logo h1 a:active,#hd .logo h1 a:focus{outline:none}#hd .logo .right{float:right;position:absolute;top:0;right:0}#hd .logo ul{font-weight:bold}#hd .logo ul li{float:left;padding:15px 27px 0 14px}#hd nav{border-top:1px solid white;padding:10px 0}#hd nav ul{text-align:center}#hd nav ul li{display:inline;margin:0 2px}#hd nav ul li:after{content:"·";padding-left:7px;color:rgba(0,0,0,0.3)}#hd nav ul li:last-child:after{content:none}#masonry{position:relative;margin:0 auto}.item{width:192px;float:left;padding:15px 15px 0;margin:0 7px 15px;font-size:12px;background:white;-moz-box-shadow:0 1px 3px rgba(34,25,25,0.4);-webkit-box-shadow:0 1px 3px rgba(34,25,25,0.4);-o-box-shadow:0 1px 3px rgba(34,25,25,0.4);box-shadow:0 1px 3px rgba(34,25,25,0.4);line-height:1.5}.item h2{padding-top:5px}.item .comments{color:#8c7e7e;padding-bottom:15px}.item .chat{background:#f2f0f0;margin:0 -15px}.item .chatbox{border-top:1px solid white;border-bottom:1px solid rgba(0,0,0,0.1);padding:15px 15px;padding-left:50px;*zoom:1}.item .chatbox:after{content:"";display:table;clear:both}.item .chatbox:last-child{border-bottom:none}.item .chatbox:first-child{color:#b29c9c}.item .chatbox:first-child b{color:#8c7e7e}.item .chatbox .flickrbombWrapper img{margin:0}.item .chatbox .flickrbombWrapper,.item .chatbox img{margin-left:-35px;float:left}.item .chatbox b{font-weight:bold}
+.item .title{font-size:14px; font-weight:bolder;}
+.item .chatbox{padding-left:50px;}
+.item .chatbox img{margin-right:5px;}
+body{padding-top:100px;}
+/*loading*/
+#status{position:absolute;bottom:25px;z-index:5000;width:350px;margin:0 -465px 0 0;right:50%;border-bottom:none;}
+#status[id]{position:fixed !important;}
+#status #loading{position:relative;border:1px solid #E52E0B;border-right:1px solid #AB2A13;border-bottom:1px solid #AB2A13;
+		   background:#CA2B0B url(images/site/loading.gif) no-repeat 8px center;-webkit-box-shadow:rgba(0,0,0,.40) 0px 1px 5px;
+		   -moz-box-shadow:rgba(0,0,0,.40) 0px 1px 5px ;-webkit-border-radius:15px;-moz-border-radius:15px;}
+#statusText{text-align:left;padding:0 15px 0 35px;line-height:32px;color:#FFFFCC;}
+.loading{display:block;line-height:20px;padding:3px 0 0 20px;font-weight:bold;color:#999;font-size:14px;background:url(images/site/loading.gif) no-repeat 0px center;}
+
+a
+{
+    color: #211922;
+    text-decoration: none;
+}
+a:hover
+{
+    color:#57a000;
+}
+a:focus
+{
+    outline: 1px;
+}

@@ -13,6 +13,16 @@
     </div>
     <div class="content-box-content">
         <div class="tab-content default-tab" id="tab1">
+        <div>
+        <p>
+        
+        <form enctype="multipart/form-data" action="@Url.Action("UploadAppIcon", "Image", new { id = ViewBag.App.Id })" method="post">
+        <img src="@Url.Action("AppIcon", "Image", new { id = @ViewBag.App.IconPath })" alt="app icons" width="57" height="57" /> 
+        <input type="file" accept="*.jpg|*.png|*.gif" name="IconFile" style="width:500px;" />
+        <input type="submit"  value="上传" />
+        </form>
+        </p>
+        </div>
             @foreach (LinkItem item in ViewBag.Links) {
                 <div>
                     <p>

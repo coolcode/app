@@ -24,6 +24,10 @@ namespace Linkknil.Entities {
         [MaxLength(255), Column(TypeName = "varchar")]
         public string XPath { get; set; }
 
+        //抓取类型：网页xpath、rss
+        [MaxLength(20), Column(TypeName = "varchar")]
+        public string PullType{ get; set; }
+
         public int Status { get; set; }
 
         public DateTime CreateTime { get; set; }

@@ -17,6 +17,9 @@ namespace Linkknil.Entities {
         [MaxLength(50), Column(TypeName = "nvarchar")]
         public string Name { get; set; }
 
+        [MaxLength(50), Column(TypeName = "varchar")]
+        public string UserId { get; set; }
+
         [MaxLength(255), Column(TypeName = "varchar")]
         public string Account { get; set; }
 

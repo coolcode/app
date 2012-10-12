@@ -16,12 +16,16 @@
 			<div class="tab-content default-tab" id="tab1">
 				@Html.ValidationSummary(true) 
 				<fieldset>
-					<legend></legend>
+					<legend></legend>                    
 					<p>
-						<label class="field">内容连接</label> 
-						@Html.TextBoxFor(model => model.Url)
+						<label class="field">内容源类型</label> 
+						@Html.RadioButtonListFor(model => model.PullType,"PullType")
 					</p> 
 					<p>
+						<label class="field">链接</label> 
+						@Html.TextBoxFor(model => model.Url)
+					</p> 
+					<p id="pXPath">
 						<label class="field">xPath</label> 
 						@Html.TextBoxFor(model => model.XPath)
 					</p> 
@@ -36,6 +40,7 @@
 			</div>
 		</div>
 		<div align="center">
+			<input type="submit" value="验证" name="Valid"/>
 			<input type="submit" value="保存" />
 		</div>
 	</div>
@@ -47,8 +52,8 @@
 	    $(function () {
 	        $("form").validate({
 	            rules: {
-	                Url: "required",
-	                XPath: "required",
+	                Url: {"required":true, url:true},
+	               // XPath: "required",
 	                Status: "required"
 	            },
 	            submitHandler: function (form) {
@@ -58,6 +63,15 @@
 	                $.ajaxSave({ url: form.action }); /*'@Url.Action("New", new { entity = "LinkItem" })'*/
 	            }
 	        });
+
+            $("input[name=PullType]").change(function(){
+                if($(this).val() == "rss"){
+                    $("#pXPath").css("display","none");
+
+                }else{
+                    $("#pXPath").css("display","");
+                }
+            });
 	    });
 	</script>
 }

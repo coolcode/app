@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NReadability", "NReadability\NReadability.csproj", "{0CCC740D-2907-437B-B5FF-F473DFA02382}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkknil.StreamStore", "Linkknil.StreamStore\Linkknil.StreamStore.csproj", "{E6AEFF16-F96D-4810-A55F-20F60865F4D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,16 @@ Global
 		{0CCC740D-2907-437B-B5FF-F473DFA02382}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0CCC740D-2907-437B-B5FF-F473DFA02382}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0CCC740D-2907-437B-B5FF-F473DFA02382}.Release|x86.ActiveCfg = Release|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,5 +93,6 @@ Global
 		{340615AE-E92C-47D8-90D8-259A4BB1B5FB} = {4C0033D9-148C-4CE0-AAB4-B2E64F6331D0}
 		{291D5138-7753-4109-89DA-409C1C43BA11} = {4C0033D9-148C-4CE0-AAB4-B2E64F6331D0}
 		{0CCC740D-2907-437B-B5FF-F473DFA02382} = {4C0033D9-148C-4CE0-AAB4-B2E64F6331D0}
+		{E6AEFF16-F96D-4810-A55F-20F60865F4D6} = {4C0033D9-148C-4CE0-AAB4-B2E64F6331D0}
 	EndGlobalSection
 EndGlobal

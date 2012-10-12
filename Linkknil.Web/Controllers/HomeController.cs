@@ -13,8 +13,11 @@ namespace Linkknil.Web.Controllers {
 
         #region Home
 
-        [Authorize]
-        public ActionResult Index() {
+        public ActionResult Index()
+        {
+            var archive = new ArchiveController();
+
+            return archive.Top();
             return View();
         }
 
