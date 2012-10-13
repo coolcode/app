@@ -346,7 +346,7 @@
     <Content Include="Views\Dictionary\ItemList.cshtml" />
     <Content Include="Views\Dictionary\Operator.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Index_不支持IE.cshtml" />
+    <Content Include="Views\Home\Index_nosupportIE.cshtml" />
     <Content Include="Views\Home\LogOn.cshtml" />
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\App\Operator.cshtml" />
