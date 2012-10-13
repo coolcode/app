@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ContentViewModel>     
+@foreach (var item in Model) {
+    <article id="@item.Id" class="entry box format-image">
+                            @if (!string.IsNullOrEmpty(item.ImagePath)) {
+                            <div class="entry-content-cnt">
+                                <div class="entry-content">
+                                    <a href="/p/@item.Id" class="thumb" title="" target = "_blank">
+                                        <img src="@item.ImagePath" class="attachment-ci_listing_thumb" alt="@item.Title" title="@item.Title"/>
+                                    </a>
+                                </div>
+                            </div>
+                            }
+                            <div class="entry-desc">
+                                <h1>
+                           @Html.ActionLink(item.Title, "Details", "Archive", new { id = item.Id }, new { target = "_blank" })</h1>
+                           
+                                <div class="entry-meta group">
+                                <p>@item.Summary</p>
+                                </div>
+                                <div class="entry-meta group">
+                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="" class="alignleft" />
+                            
+                            <p><strong>@item.Author  </strong></p>
+                            <p> <span> 发布于 @item.PublishTimeText</span></p>
+                                </div>
+                               @* <div class="entry-meta group">
+                                    <a class="comments-no" href="#">4</a> 
+                                    <a class="heart-this loved" href="#" title="喜欢"><span class="heart-no">7</span></a> 
+                                    <a class="entry-permalink" href="#" title="">lala</a>
+                                </div>*@
+                            </div>
+                        </article>
+}

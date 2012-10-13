@@ -5,9 +5,11 @@ using System.Text;
 using System.Web.Mvc;
 using CoolCode.Linq;
 using Linkknil.Entities;
+using CoolCode.Data.Entity;
 using CoolCode.Web.Mvc;
 using CoolCode.ServiceModel.Mvc;
 using Linkknil.Services;
+using CoolCode;
 
 namespace Linkknil.Web.Controllers {
     [Authorize]
@@ -118,13 +120,37 @@ namespace Linkknil.Web.Controllers {
         }
 
 
-        public ActionResult Pull(string id)
-        {
+        public ActionResult Pull(string id) {
             var linkService = new LinkService();
-            var link = db.Links.Find(id);
+
+            var links = db.Links.Where(c => c.AppId == id && c.Status == (int)LinkStatus.Enabled).ToList();
+
+            if(links.Count ==0)
+            {
+                return this.Success("找不到相应链接！");
+            }
+
+            foreach (var link in links) {
                 linkService.DigLink(link);
+            } 
 
             return this.Success("抓取成功！");
         }
+
+        public ActionResult CrawlHistoryIndex() {
+            return View();
+        }
+
+        public ActionResult CrawlHistoryList(string appName, int page=0, string sort = "EndTime Desc") {
+            var q = db.Paging(new PageParam(page), sort, @"
+select d.*, l.Url as LinkUrl, a.Name as AppName from lnk_diglink d
+left join lnk_link l on d.LinkId = l.Id
+left join pf_app a on l.AppId = a.Id
+where a.Name like '%'+ISNULL(@AppName,'')+'%'",
+                new { AppName = appName });
+
+            return View(q);
+        }
+
     }
 }

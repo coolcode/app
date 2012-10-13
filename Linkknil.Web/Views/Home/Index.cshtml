@@ -1,107 +1,198 @@
-﻿@model IEnumerable<ContentViewModel>
+﻿@model IPaginatedList<ContentViewModel>
 @{
-    Layout = null;
+    Layout="~/Views/Shared/_Home.cshtml";
 }
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8' />
-    <meta name="keywords" content="阅韵,Link,Linkknil,阅读,Readability,Instapaper,开发者,链接,开放平台" />
-    <meta name="description" content="Linkknil 阅韵 关注你的阅读品味 作者 BruceLee 过去是程序猿、攻城狮、射鸡师、TM、PM，现在专注移动互联网产品。" />
-    <meta content='Linkknil 阅韵' property='og:title' />
-    <meta content='Linkknil 阅韵' property='og:site_name' />
-    <meta content='Linkknil 阅韵 关注你的阅读品味 BruceLee' property='og:description' />
-    <link type="text/css" rel="stylesheet" href="/content/css/home/waterfall.css" media="screen" />
-    <title>Linkknil 阅韵 关注你的阅读</title>
-</head>
-<body class='index'>
-    <div id="loading" class="loading" style="display: none;">
-        <div id="statusText">
-            处理中 ...</div>
-    </div>
-    <header id='hd'>
-      <div class='logo'>
-        <div class='wrapper'>
-          <h1><a  class="displayText" href="/">Linkknil 阅韵</a></h1>
-          <div class='right'>
-            <ul>
-              <li>
-                <a href="/Home/Logon">登录</a>
-              </li>
-              <li>
-                <a href="/Home/Register">注册</a>
-              </li>
-              <li>
-                <a href="/Home/About">关于</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      @*<nav>
-        <div class='wrapper'>
-          <div class='top-menu'>
-            <ul>
-              <li>Everything</li>
-              <li>Videos</li>
-              <li>Discussions</li>
-              <li>Gifts</li>
-            </ul>
-          </div>
-        </div>
-      </nav>*@
+
+@section css{
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="~/content/css/waterfall/style.css" type="text/css"/>
+    <link rel="stylesheet" href="~/content/css/waterfall/colors/default.css" type="text/css" id="color"/>
+}
+<body>
+
+    <header id="header">
+        <div class="pre-head show-on-mobile">
+            <div class="wrap group">
+                <div class="pre-head-wgt group">
+                    <aside class="widget group widget_ci_social_widget"><a href="#" class="icn twitter">Twitter</a> <a href="#" class="icn facebook">Facebook</a> <a href="#" class="icn pinterest">Pinterest</a> <a href="#" class="icn youtube">Youtube</a></aside>
+
+                    <aside class="widget widget_search group">
+                        <form action="/" id="searchform2" class="searchform" method="get" role="search">
+                            <input size="27" type="text" title="Search" id="s2" class="s" name="s"> <a id="searchsubmit2" class="searchsubmit"><img src="images/search.png" alt="GO"></a>
+                        </form>
+                    </aside>
+                </div><!-- .header-wgt -->
+            </div>
+        </div><!-- .pre-head -->
+
+        <div id="site-head">
+            <div class="wrap group">
+                <hgroup class="logo">
+                    <h1><a href="index.html"> Linkknil 阅韵 @*<img src="demo/color-default.png" alt="">*@</a></h1>
+                </hgroup>
+
+                <div class="header-wgt group">
+                    @*<aside class="widget group widget_ci_social_widget"><a href="#" class="icn twitter">Twitter</a> <a href="#" class="icn facebook">Facebook</a> <a href="#" class="icn pinterest">Pinterest</a> <a href="#" class="icn youtube">Youtube</a></aside>
+*@
+                    <aside class="widget widget_search group">
+                        <form action="/" id="searchform1" class="searchform" method="get" role="search">
+                            <input size="27" type="text" title="Search" id="s1" class="s" name="s"> <a id="searchsubmit1" class="searchsubmit"><img src="~/content/css/waterfall/images/search.png" alt="GO"></a>
+                        </form>
+                    </aside>
+                </div><!-- .header-wgt -->
+            </div><!-- .wrap < #header -->
+        </div><!-- #site-head -->
+
+        <nav>
+            <div class="wrap group">
+                <ul id="navigation" class="group">
+                    <li class="current_page_item"><a href="/">Home</a></li>
+                    <li><a href="page.html">总文章数(@Model.TotalRecords)</a></li>
+                    <li><a href="page-double.html">Double Width Page</a></li>
+                    <li>
+                        <a href="#">Post Formats</a>
+                        <ul>
+                            <li><a href="format-standard.html">Standard Format</a></li>
+                            <li><a href="format-image.html">Image Format</a></li>
+                            <li><a href="format-gallery.html">Gallery Format</a></li>
+                            <li><a href="format-video.html">Video Format</a></li>
+                            <li><a href="format-audio.html">Audio Format</a></li>
+                            <li><a href="format-quote.html">Quote Format</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div><!-- .wrap < nav -->
+        </nav>
     </header>
-    <div class='wrapper'>
-        <div id='bd'>
-            <div class='wrapper'>
-                <div id='masonry' index="@ViewBag.LastIndex">
-                @foreach (var item in Model) {
-                    <div class='item'>
-                        <h2 class='title'>
-                           @Html.ActionLink(item.Title, "Details", "Archive", new { id = item.Id }, new {target="_blank" })
-                        </h2>
-                        <div class='comments'>
-                            @item.Summary
-                        </div>
-                        <div class='chat'>
-                            <div class='chatbox'>
-                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="" />
-                            <b>@item.Author </b><p>发布于 @item.PublishTimeText @*阅读(1)*@</p> 
+
+    <div id="page">
+        <section id="main">
+            <div class="wrap group">
+                <div id="box-container">
+                    <div id="entry-listing" class="group">
+                        @*<article class="entry box isotope-item" id="intro">
+                            <div class="entry-content-cnt">
+                                <aside class="widget widget_ci_about_widget group">
+                                    <h3 class="widget-title">Who I am</h3>
+
+                                    <div class="widget_about group">
+                                        <img alt="about me" class="alignleft" src="images/dummy/me.jpg">
+
+                                        <p>Hello, I am <strong>Pinfinity</strong>, a Pinterest-like infinite scrolling site template that supports multiple entry formats like <strong>Blog Posts, Images, Photo Galleries, Videos and Quotes</strong> in a very cool way.</p>
+
+                                        <p>I'm also <strong>responsive</strong>, meaning that I will behave in every resolution and all mobile devices perfectly!</p>
+
+                                        <p>Try me out!</p>
+                                    </div>
+                                </aside>
+
+                                <aside class="widget widget_ci_twitter_widget group">
+                                    <h3 class="widget-title">Recent tweets</h3>
+
+                                    <div id="twitter_update_list">
+                                        <ul>
+                                            <li><span><a href="#">handle</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere tortor :)</span> <a href="#" class="twitter-time">about 6 hours ago</a></li>
+
+                                            <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere tortor. <a href="#">http://www.example.com</a></span> <a href="#" class="twitter-time">about 11 hours ago</a></li>
+                                        </ul>
+                                    </div>
+                                </aside>
                             </div>
-                        </div>
-                    </div>
+                        </article><!-- #intro -->*@
+                        
+                @foreach (var item in Model) {
+                        <article id="@item.Id" class="entry box format-image">
+                            @if (!string.IsNullOrEmpty(item.ImagePath)) {
+                            <div class="entry-content-cnt">
+                                <div class="entry-content">
+                                    <a href="/p/@item.Id" class="thumb" title="" target = "_blank">
+                                        <img src="@item.ImagePath" class="attachment-ci_listing_thumb" alt="@item.Title" title="@item.Title"/>
+                                    </a>
+                                </div>
+                            </div>
+                            }
+                            <div class="entry-desc">
+                                <h1>
+                           @Html.ActionLink(item.Title, "Details", "Archive", new { id = item.Id }, new { target = "_blank" })</h1>
+                           
+                                <div class="entry-meta group">
+                                <p>@item.Summary</p>
+                                </div>
+                                <div class="entry-meta group">
+                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="" class="alignleft" />
+                            
+                            <p><strong>@item.Author  </strong></p>
+                            <p> <span> 发布于 @item.PublishTimeText</span></p>
+                                </div>
+                               @* <div class="entry-meta group">
+                                    <a class="comments-no" href="#">4</a> 
+                                    <a class="heart-this loved" href="#" title="喜欢"><span class="heart-no">7</span></a> 
+                                    <a class="entry-permalink" href="#" title="">lala</a>
+                                </div>*@
+                            </div>
+                        </article>
                 }
-                    @*默认模板*@ @*<div class='item'>
-                        <img height="170px" src="/image/format/192x170/Bruce/Lee" width="192px" alt="" />
-                        <h2 class='lipsum'>
-                        </h2>
-                        <div class='comments'>
-              </div>
-              <div class='chat'>
-                <div class='chatbox'>
-                  <img height="30px" src="/image/format/30x30/798dc3/15237a_text=voluptatem" width="30px" alt="" />
-                  <b>inn Lloyd</b>
-                  via
-                  <b>Kerry Beasley</b>
-                  onto
-                  <b>facilis omnis</b>
+
+                  
+                    </div><!-- #entry-listing -->
+
+                    <div class="nav">
+                        <a id="nextpage" href="/?page=@(Model.PageIndex+1)">Next Page</a>
+                    </div>
                 </div>
-                <div class='chatbox'>
-                  <img height="30px" src="/image/format/30x30/9da476/98e60a_text=similique" width="30px" alt="" />
-                  <b>Johnnie Harvey</b>
-                  <p>Voluptatem culpa accusamus quasi et deleniti ea autem a enim</p>
-                </div>
-              </div>
-                    </div>*@
+            </div><!-- .wrap < #main -->
+        </section><!--  #main -->
+
+        <footer id="footer">
+            <div class="wrap group">
+                <div class="footer-text">
+                    <a href="/">Linkknil</a> &mdash; 关注阅读体验.
                 </div>
             </div>
-        </div>
-    </div>
-    @* <a href='/'>
-      <img alt='' src='' style='position: fixed; top: 0; left: 0; border: 0; z-index: 1000;' />
-    </a>*@
-    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/jquery.masonry.min.js"></script>
-    <script type="text/javascript" src="/scripts/all.js"></script>
-</body>
-</html>
+        </footer>
+    </div><!-- #page -->
+
+     
+<script src="~/content/js/waterfall/modernizr.js" type="text/javascript"></script>
+<script src="~/content/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/superfish.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.isotope.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.fitvids.js" type="text/javascript"></script>
+@*<script src="~/content/js/waterfall/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>*@
+<script src="~/content/js/waterfall/jquery.flexslider-min.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.formLabels1.0.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.jplayer.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.ias.min.js" type="text/javascript"></script>
+
+<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="~/content/js/waterfall/selectivizr-min.js"></script><![endif]-->
+<script defer src="~/content/js/waterfall/scripts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    jQuery.ias({
+        container: "#entry-listing",
+        item: ".entry",
+        pagination: ".nav",
+        next: "#nextpage",
+        loader: "<img src='/content/css/waterfall/images/ajax-loader.gif'/>",
+       // onRenderComplete:
+       onLoadItems: function (items) {
+           // alert(items);
+            var $newElems = jQuery(items).addClass("newItem");
+
+            $newElems.hide().imagesLoaded(function () {
+                if (jQuery(".flexslider").length > 0) {
+                    jQuery(".flexslider").flexslider({
+                        'controlNav': true,
+                        'directionNav': true
+                    });
+                }
+                jQuery(this).show();
+                jQuery('#infscr-loading').fadeOut('normal');
+                jQuery("#entry-listing").isotope('appended', $newElems);
+                // loadAudioPlayer();
+            });
+        }
+    });
+</script>
+</body> 

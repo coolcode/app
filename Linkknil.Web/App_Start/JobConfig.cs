@@ -17,7 +17,7 @@ namespace Linkknil.Web {
                 .WithIdentity("PullUrlJob", "jobs")
                 .OfType(typeof(CommonJob))
                 .WithDescription("内容源抓取服务")
-                .UsingJobData("type", "Linkknil.Services.LinkService,Linkknil.Services")
+                .UsingJobData("type", "Linkknil.Services.CrawlJob,Linkknil.Jobs")
                 .UsingJobData("method", "DigLinks")
                 .Build();
 
@@ -25,7 +25,7 @@ namespace Linkknil.Web {
             var trigger = TriggerBuilder.Create()
                 .ForJob(jobDetail)
                 .StartAt(DateTimeOffset.Now.AddMinutes(1))
-                .WithSimpleSchedule(x => x.WithIntervalInMinutes(5).RepeatForever())
+                .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever())
                 .Build();
 
             sched.ScheduleJob(jobDetail, trigger);

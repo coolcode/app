@@ -1,6 +1,11 @@
-﻿using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using CoolCode;
+using CoolCode.Data.Entity;
+using Linkknil.Entities;
 using Linkknil.Web.Models;
 using CoolCode.Web.Mvc;
 using CoolCode.ServiceModel.Mvc;
@@ -13,12 +18,25 @@ namespace Linkknil.Web.Controllers {
 
         #region Home
 
-        public ActionResult Index()
+        public ActionResult Index(int page=0)
         {
+            var archives = QueryContent(page);
+
+            return View(archives);
+        }
+
+        public ActionResult ArchiveList(int page=1) {
             var archive = new ArchiveController();
 
             return archive.Top();
-            return View();
+        }
+
+        private IPaginatedList<ContentViewModel> QueryContent(int page) {
+            return db.Paging<ContentViewModel>(new PageParam(page,30),"PublishTime desc", 
+                @"select c.Id, c.Title, substring(c.Text,1,100) Summary, c.EndTime as [PublishTime], a.Name as Author, a.IconPath, c.ImagePath 
+from lnk_content c
+left join pf_app a on c.AppId = a.Id");
+
         }
 
         public ActionResult Search() {

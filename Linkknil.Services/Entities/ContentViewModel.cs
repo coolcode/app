@@ -10,8 +10,9 @@ namespace Linkknil.Entities {
         public string Summary { get; set; }
         public DateTime PublishTime { get; set; }
         public string Author { get; set; }
-        public string PublishTimeText { get { return PublishTime.ToString("yyyy-MM-dd HH:mm:ss"); } }
+        public string PublishTimeText { get { return PublishTime.ToString("yyyy-MM-dd HH:mm"); } }
 
         public string IconPath { get; set; }
+        public string ImagePath { get; set; }
     }
 }

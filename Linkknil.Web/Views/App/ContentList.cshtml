@@ -5,9 +5,8 @@
      c.Column("Text").Header("快照").Sortable(true).CharsLength(30);
 
      c.Column("Url").Header("链接").Sortable(true).Template(@<text> <a href="@item.Url" title="@item.Url" target="_blank">@(((string)item.Url).Cut(40))</a></text>);
-    
-     c.Column("BeginTime").Header("开始抓取时间").Sortable(true);
-     c.Column("EndTime").Header("结束抓取时间").Sortable(true);
+
+     c.Column("BeginTime").Header("抓取时间").Sortable(true).Template(@<text> @item.BeginTime -  @item.EndTime </text>);
      c.Column("TimeSpan").Header("花费时间（秒）").Sortable(true);
      })
       .Sort(defaultSort: "BeginTime Desc")

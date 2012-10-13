@@ -49,8 +49,8 @@ namespace Linkknil.Services {
                 Match charSetMatch = Regex.Match(html, "charset=(?<code>[a-zA-Z0-9_-]+)", RegexOptions.IgnoreCase);
                 string chartSet = charSetMatch.Groups["code"].Value;
                 if (!string.IsNullOrEmpty(chartSet) && !chartSet.Equals("utf-8", StringComparison.OrdinalIgnoreCase)) {
-                    memoryStream.Position = 0;
                     using (var reader = new StreamReader(memoryStream, Encoding.GetEncoding(chartSet))) {
+                        memoryStream.Position = 0;
                         html = reader.ReadToEnd();
                     }
                 }

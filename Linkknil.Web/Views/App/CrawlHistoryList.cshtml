@@ -1,0 +1,15 @@
+﻿@(
+ Html.Grid().Columns(c => {
+     c.Column("AppName").Header("应用名称").Sortable(true);
+     c.Column("LinkUrl").Header("链接").Sortable(true).Template(@<text> <a href="@item.LinkUrl" title="@item.LinkUrl" target="_blank">@(((string)item.LinkUrl).Cut(30))</a></text>);
+     c.Column("BeginTime").Header("抓取时间").Sortable(true).Template(@<text> @item.BeginTime -  @item.EndTime </text>) ;
+     c.Column("TimeSpan").Header("花费时间（秒）").Sortable(true);
+     c.Column("DigNum").Header("抓取总数").Sortable(true);
+     c.Column("FailNum").Header("失败数").Sortable(true);
+     c.Column("DuplicateNum").Header("重复数").Sortable(true);
+     c.Column().Header("成功数").Template(@<span style="color:red"> @(item.DigNum - item.FailNum - item.DuplicateNum) </span>);
+     ;
+     })
+     .Sort(defaultSort: "EndTime Desc")
+)
+     

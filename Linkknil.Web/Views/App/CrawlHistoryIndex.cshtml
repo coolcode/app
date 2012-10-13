@@ -1,12 +1,11 @@
 ﻿@{
 	Layout = "~/Views/Shared/_Site.cshtml";
-	ViewBag.Title = "应用分类";
+    ViewBag.Title = "爬网历史";
 }
 <div class="content-box">
 	<div class="content-box-header">
 		<h3>@ViewBag.Title
 		</h3>
-		@Html.Partial("Controls/_CreateButton", new { entity = "AppCategory" })
 		<ul class="content-box-tabs">
 			<li></li>
 		</ul>
@@ -20,16 +19,15 @@
 				<table width="100%">
 					<tr>
 						<th style="width: 80px">
-							名称
+							应用名称
 						</th>
 						<td style="width: 200px">
-							@Html.TextBox("it.Name.Contains(@0)", "")
+							@Html.TextBox("AppName", "")
 						</td>
 					</tr>
 				</table>
 				</text>)
-				@Html.GridLoader("grid", "ItemList", new { entity = "AppCategory" })
-				@Html.Hidden("entity", "AppCategory");
+				@Html.GridLoader("grid", "CrawlHistoryList")
 			}
 
 		</div>

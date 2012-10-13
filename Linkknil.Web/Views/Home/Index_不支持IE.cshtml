@@ -1,0 +1,107 @@
+﻿@model IEnumerable<ContentViewModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <meta name="keywords" content="阅韵,Link,Linkknil,阅读,Readability,Instapaper,开发者,链接,开放平台" />
+    <meta name="description" content="Linkknil 阅韵 关注你的阅读品味 作者 BruceLee 过去是程序猿、攻城狮、射鸡师、TM、PM，现在专注移动互联网产品。" />
+    <meta content='Linkknil 阅韵' property='og:title' />
+    <meta content='Linkknil 阅韵' property='og:site_name' />
+    <meta content='Linkknil 阅韵 关注你的阅读品味 BruceLee' property='og:description' />
+    <link type="text/css" rel="stylesheet" href="/content/css/home/waterfall.css" media="screen" />
+    <title>Linkknil 阅韵 关注你的阅读</title>
+</head>
+<body class='index'>
+    <div id="loading" class="loading" style="display: none;">
+        <div id="statusText">
+            处理中 ...</div>
+    </div>
+    <header id='hd'>
+      <div class='logo'>
+        <div class='wrapper'>
+          <h1><a  class="displayText" href="/">Linkknil 阅韵</a></h1>
+          <div class='right'>
+            <ul>
+              <li>
+                <a href="/Home/Logon">登录</a>
+              </li>
+              <li>
+                <a href="/Home/Register">注册</a>
+              </li>
+              <li>
+                <a href="/Home/About">关于</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      @*<nav>
+        <div class='wrapper'>
+          <div class='top-menu'>
+            <ul>
+              <li>Everything</li>
+              <li>Videos</li>
+              <li>Discussions</li>
+              <li>Gifts</li>
+            </ul>
+          </div>
+        </div>
+      </nav>*@
+    </header>
+    <div class='wrapper'>
+        <div id='bd'>
+            <div class='wrapper'>
+                <div id='masonry' index="@ViewBag.LastIndex">
+                @foreach (var item in Model) {
+                    <div class='item'>
+                        <h2 class='title'>
+                           @Html.ActionLink(item.Title, "Details", "Archive", new { id = item.Id }, new {target="_blank" })
+                        </h2>
+                        <div class='comments'>
+                            @item.Summary
+                        </div>
+                        <div class='chat'>
+                            <div class='chatbox'>
+                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="" />
+                            <b>@item.Author </b><p>发布于 @item.PublishTimeText @*阅读(1)*@</p> 
+                            </div>
+                        </div>
+                    </div>
+                }
+                    @*默认模板*@ @*<div class='item'>
+                        <img height="170px" src="/image/format/192x170/Bruce/Lee" width="192px" alt="" />
+                        <h2 class='lipsum'>
+                        </h2>
+                        <div class='comments'>
+              </div>
+              <div class='chat'>
+                <div class='chatbox'>
+                  <img height="30px" src="/image/format/30x30/798dc3/15237a_text=voluptatem" width="30px" alt="" />
+                  <b>inn Lloyd</b>
+                  via
+                  <b>Kerry Beasley</b>
+                  onto
+                  <b>facilis omnis</b>
+                </div>
+                <div class='chatbox'>
+                  <img height="30px" src="/image/format/30x30/9da476/98e60a_text=similique" width="30px" alt="" />
+                  <b>Johnnie Harvey</b>
+                  <p>Voluptatem culpa accusamus quasi et deleniti ea autem a enim</p>
+                </div>
+              </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    @* <a href='/'>
+      <img alt='' src='' style='position: fixed; top: 0; left: 0; border: 0; z-index: 1000;' />
+    </a>*@
+    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="/scripts/all.js"></script>
+</body>
+</html>

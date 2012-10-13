@@ -1,39 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using CoolCode;
 using CoolCode.Data.Entity;
 using CoolCode.ServiceModel.Services;
+using HtmlAgilityPack;
 using Linkknil.Entities;
 using Linkknil.Models;
 using NReadability;
 using System.Threading.Tasks;
 
 namespace Linkknil.Services {
-    public class LinkService : ServiceBase {
-        protected new LinkknilContext db { get { return base.db as LinkknilContext ?? new LinkknilContext(); } }
+    public class LinkService : ServiceBase<LinkknilContext> {
         private PullService pullService = new PullService();
-
-        /*
-        public LinkService() {
-            LinkknilContext.SetInitializer();
-            var pf = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss fff");
-            db.AppCategories.Add(new AppCategory { Id = pf + "1", Name = "Bruce" });
-            //db.AppCategories.Add(new AppCategory { Id = pf + "2", Name = "Hohn" });
-            //db.AppCategories.Add(new AppCategory { Id = pf + "3", Name = "Rose" });
-            db.SaveChanges();
-        }
-        */
-        public void DigLinks() {
-            //查找未进行Dig的链接
-            var links = GetUnhandledLinks(10, DateTime.Now.AddMinutes(1));//半小时
-
-            //遍历每个链接
-            Parallel.ForEach(links, DigLink);
-            //foreach (var link in links) {
-            //    DigLink(link);
-            //}
-        }
 
         public void DigLink(LinkItem link) {
             var dig = new DigLink {
@@ -101,19 +81,14 @@ namespace Linkknil.Services {
             }
         }
 
-        private IEnumerable<LinkItem> GetUnhandledLinks(int count, DateTime handleTime) {
-            return
-                db.Query<LinkItem>(
-                   string.Format(@"select top {0} l.* from Lnk_Link l
-where l.Status = 1 --启用
-and ISNULL(l.HandleTime,'1999-9-9') < @HandleTime -- 上次处理时间区间未超出
-and exists(select null from PF_App a where a.Id = l.AppId and a.Status = @Status) --App状态是启用
-order by ISNULL(l.HandleTime,'1999-9-9')", count),
-                    new { HandleTime = handleTime, Status =(int)AppStatus.Publish });
+        private void UpdateLinkStatusToHandle(string linkId) {
+            db.Execute(@"update Lnk_Link set Status = 50, HandleTime = @HandleTime where Id = @Id", new { Id = linkId, HandleTime = DateTime.Now });
         }
 
-        private void UpdateLinkStatusToHandle(string linkId) {
-            db.Execute(@"update Lnk_Link set Status = 50 where Id = @Id", new { Id = linkId });
+        private void UpdateLinkStatusToDone(string linkId, DigLink digLink) {
+            db.Execute(@"update Lnk_Link set Status = 1, HandleTime = @HandleTime where Id = @Id", new { Id = linkId, HandleTime = DateTime.Now });
+            db.Digs.Add(digLink);
+            db.SaveChanges();
         }
 
         private PullStatus PullContent(LinkItem link, Link digLink) {
@@ -126,6 +101,7 @@ order by ISNULL(l.HandleTime,'1999-9-9')", count),
             try {
                 //读取内容
                 var html = pullService.PullHtml(digLink.Url);
+                var imagePath = DigFirstImage(html);
 
                 var nReadabilityTranscoder = new NReadabilityWebTranscoder();
                 var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(digLink.Url));
@@ -145,6 +121,7 @@ order by ISNULL(l.HandleTime,'1999-9-9')", count),
                     Html = html,
                     Tag = "",
                     Response = "",
+                    ImagePath = imagePath,
                     FriendlyTitle = transResult.ExtractedTitle.Cut(100),
                     FriendlyHtml = transResult.ExtractedContent
                 };
@@ -157,6 +134,19 @@ order by ISNULL(l.HandleTime,'1999-9-9')", count),
             }
 
             return PullStatus.Success;
+        }
+
+        private string DigFirstImage(string html) {
+            var doc = new HtmlDocument();
+            doc.LoadHtml(html);
+            var linkNodes = doc.DocumentNode.SelectNodes("//img[@src]");
+
+            if (linkNodes == null || linkNodes.Count == 0)
+            {
+                return null;
+            }
+
+            return linkNodes.FirstOrDefault().Attributes["src"].Value;
         }
 
         private void SaveLinkToPush(Link digLink) {
@@ -184,63 +174,56 @@ order by ISNULL(l.HandleTime,'1999-9-9')", count),
         private void LogError(LinkItem link, Exception ex) {
             Logger.Error(string.Format("Link(url:{0},xpath:{1},Id:{2}) 发生异常！", link.Url, link.XPath, link.Id), ex);
         }
+        
+        public void PushLink(PushItem pushItem) {
+            var beginTime = DateTime.Now;
 
-        private void UpdateLinkStatusToDone(string linkId, DigLink digLink) {
-            db.Execute(@"update Lnk_Link set Status = 1, HandleTime = @HandleTime where Id = @Id", new { Id = linkId, HandleTime = DateTime.Now });
-            db.Digs.Add(digLink);
-            db.SaveChanges();
-        }
+            var pushTarget = db.Get<PushTarget>("select top 1 t.* from Lnk_PushTarget t where Id = @Id",
+                                                new { Id = pushItem.Target });
 
-        public void PushLink() {
-            //查找Push表未处理的url
-            var count = 10;
-            var pushItems = db.Query<PushItem>(string.Format(@"select top {0} p.* from lnk_push p where Status = 0 order by CreateTime", count));
+            var response = string.Empty;
+            var status = PullStatus.None;
 
-            foreach (var pushItem in pushItems) {
-                var beginTime = DateTime.Now;
-
-                var pushTarget = db.Get<PushTarget>("select top 1 t.* from Lnk_PushTarget t where Id = @Id",
-                                                    new { Id = pushItem.Target });
-
-                var response = string.Empty;
-                var status = PullStatus.None;
-
-                if (pushTarget == null) {
-                    response = string.Format("无法找到对应的推送目标(Target:{0})", pushItem.Target);
-                    status = PullStatus.Fail;
-                }
-                else {
-                    //推送数据
-                    switch (pushItem.Target) {
-                        case "BF58D5E6-9ED6-48F9-BB4D-5F52426DD620": //Readability
-                            try {
-                                var readabilityService = new ReadabilityService(pushTarget.Account, pushTarget.Password);
-                                readabilityService.Bookmark(pushItem.Url);
-                                status = PullStatus.Success;
-                            }
-                            catch (Exception ex) {
-                                status = PullStatus.Fail;
-                                if (ex.Message.Contains("(404)")) {
-                                    response += "（404）找不到网页" + pushItem.Url;
-                                }
-                                else if (ex.Message.Contains("(409)")) {
-                                    response += "（409）重复推送" + pushItem.Url;
-                                    status = PullStatus.Duplicate;
-                                }
-                                else {
-                                    response += "未知错误！";
-                                }
-                                response += " " + ex.Message + " StakTrace:" + ex.StackTrace;
-                            }
-                            break;
-                    }
-                }
-                //更新推送状态
-                db.Execute(@"update lnk_push set Response = @Response, Status = @Status, PushTime = @PushTime, TimeSpan = @TimeSpan where Id = @Id ", new { Id = pushItem.Id, Response = response, Status = (int)status, PushTime = DateTime.Now, TimeSpan = (DateTime.Now - beginTime).TotalSeconds });
+            if (pushTarget == null) {
+                response = string.Format("无法找到对应的推送目标(Target:{0})", pushItem.Target);
+                status = PullStatus.Fail;
             }
+            else {
+                //推送数据
+                switch (pushItem.Target) {
+                    case "BF58D5E6-9ED6-48F9-BB4D-5F52426DD620": //Readability
+                        try {
+                            var readabilityService = new ReadabilityService(pushTarget.Account, pushTarget.Password);
+                            readabilityService.Bookmark(pushItem.Url);
+                            status = PullStatus.Success;
+                        }
+                        catch (Exception ex) {
+                            status = PullStatus.Fail;
+                            if (ex.Message.Contains("(404)")) {
+                                response += "（404）找不到网页" + pushItem.Url;
+                            }
+                            else if (ex.Message.Contains("(409)")) {
+                                response += "（409）重复推送" + pushItem.Url;
+                                status = PullStatus.Duplicate;
+                            }
+                            else {
+                                response += "未知错误！";
+                            }
+                            response += " " + ex.Message + " StakTrace:" + ex.StackTrace;
+                        }
+                        break;
+                }
+            }
+            //更新推送状态
+            db.Execute(@"update lnk_push set Response = @Response, Status = @Status, PushTime = @PushTime, TimeSpan = @TimeSpan where Id = @Id ",
+                new {
+                    Id = pushItem.Id,
+                    Response = response,
+                    Status = (int)status,
+                    PushTime = DateTime.Now,
+                    TimeSpan = (DateTime.Now - beginTime).TotalSeconds
+                });
         }
-
-
     }
 
 }

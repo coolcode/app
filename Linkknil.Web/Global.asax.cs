@@ -28,7 +28,7 @@ namespace Linkknil.Web {
 
         private static void RegisterDependencies() {
             IKernel kernel = new StandardKernel(new DefaultModule());
-            kernel.Rebind<DbContext>().To<LinkknilContext>();
+            kernel.Rebind<DbContext>().To<LinkknilContext>().InTransientScope();
             kernel.Rebind<IEntityWatcher>().To<CustomEntityWatcher>();
             kernel.Bind<IFileService>().To<AliyunFileService>();
             //kernel.Rebind<IFileService>().To<WebFileService>();
