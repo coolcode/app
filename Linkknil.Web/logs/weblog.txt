@@ -9516,3 +9516,57 @@ System.Net.WebException: The underlying connection was closed: An unexpected err
    at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
    at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
 记录时间：2012-10-14 12:40:40,723 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 12:48:06,548 线程ID:[18] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.ArgumentException: Value cannot be null or empty.
+Parameter name: linkText
+   at System.Web.Mvc.Html.LinkExtensions.ActionLink(HtmlHelper htmlHelper, String linkText, String actionName, String controllerName, RouteValueDictionary routeValues, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.LinkExtensions.ActionLink(HtmlHelper htmlHelper, String linkText, String actionName, String controllerName, Object routeValues, Object htmlAttributes)
+   at ASP._Page_Views_Home_Index_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml:line 117
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-14 18:28:05,241 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 18:28:13,804 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 18:29:59,114 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 18:31:10,009 线程ID:[22] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.ArgumentException: Value cannot be null or empty.
+Parameter name: linkText
+   at System.Web.Mvc.Html.LinkExtensions.ActionLink(HtmlHelper htmlHelper, String linkText, String actionName, String controllerName, RouteValueDictionary routeValues, IDictionary`2 htmlAttributes)
+   at System.Web.Mvc.Html.LinkExtensions.ActionLink(HtmlHelper htmlHelper, String linkText, String actionName, String controllerName, Object routeValues, Object htmlAttributes)
+   at ASP._Page_Views_Home_Index_cshtml.Execute() in c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml:line 117
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-14 18:31:19,582 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 19:29:59,079 线程ID:[DefaultQuartzScheduler_Worker-2] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 19:30:04,482 线程ID:[DefaultQuartzScheduler_Worker-2] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 20:30:01,139 线程ID:[DefaultQuartzScheduler_Worker-3] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 20:30:11,248 线程ID:[DefaultQuartzScheduler_Worker-3] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务

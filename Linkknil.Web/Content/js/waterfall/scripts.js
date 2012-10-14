@@ -2,14 +2,15 @@ jQuery(window).load( function($) {
 
 //
   // Flexslider
-  //
+    //
+  /*
   if( jQuery(".flexslider").length > 0) {
     jQuery(".flexslider").flexslider({
       'controlNav': true,
       'directionNav': true
     });
   }
-
+  */
   jQuery('#entry-listing').isotope({
     animationOptions: {
       duration: 750,
@@ -70,11 +71,11 @@ jQuery(document).ready(function($) {
   $("nav select").change(function () {
     window.location = $(this).find("option:selected").val();
   });
-
+  /*
   $(function(){
     $.fn.formLabels();
   });
-
+  */
   /*
   $("#jp500").jPlayer({
     ready: function (event) {
@@ -90,7 +91,7 @@ jQuery(document).ready(function($) {
   });
   */
   //fitVids
-  $(".inner-container .format-video .entry-image").fitVids();
+  //$(".inner-container .format-video .entry-image").fitVids();
 
 
   $('#styler a').not("#style-toggle a").click(function(){

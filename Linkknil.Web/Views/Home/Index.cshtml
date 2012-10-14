@@ -112,6 +112,7 @@
                                 </div>
                             </div>
                             }
+                            @if (!string.IsNullOrEmpty(item.Title)) {
                             <div class="entry-desc">
                                 <h1>
                            @Html.ActionLink(item.Title, "Details", "Archive", new { id = item.Id }, new { target = "_blank" })</h1>
@@ -131,6 +132,7 @@
                                     <a class="entry-permalink" href="#" title="">lala</a>
                                 </div>*@
                             </div>
+                            }
                         </article>
                 }
 
@@ -154,15 +156,14 @@
     </div><!-- #page -->
 
      
-<script src="~/content/js/waterfall/modernizr.js" type="text/javascript"></script>
 <script src="~/content/js/jquery/jquery.js" type="text/javascript"></script>
 <script src="~/content/js/waterfall/superfish.js" type="text/javascript"></script>
 <script src="~/content/js/waterfall/jquery.isotope.js" type="text/javascript"></script>
-<script src="~/content/js/waterfall/jquery.fitvids.js" type="text/javascript"></script>
-@*<script src="~/content/js/waterfall/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>*@
+@*<script src="~/content/js/waterfall/jquery.fitvids.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
 <script src="~/content/js/waterfall/jquery.flexslider-min.js" type="text/javascript"></script>
 <script src="~/content/js/waterfall/jquery.formLabels1.0.js" type="text/javascript"></script>
-<script src="~/content/js/waterfall/jquery.jplayer.js" type="text/javascript"></script>
+<script src="~/content/js/waterfall/jquery.jplayer.js" type="text/javascript"></script>*@
 <script src="~/content/js/waterfall/jquery.ias.min.js" type="text/javascript"></script>
 
 <!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="~/content/js/waterfall/selectivizr-min.js"></script><![endif]-->
