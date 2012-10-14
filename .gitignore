@@ -25,3 +25,4 @@ nuget-pack
 *.nuspec
 *.nupkg
 logs
+/Linkknil.Web/logs
