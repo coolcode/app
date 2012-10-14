@@ -57,6 +57,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="LeLog4net">
+      <HintPath>..\packages\le_log4net.2.1\lib\4.0\LeLog4net.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.11\lib\net40-full\log4net.dll</HintPath>
     </Reference>

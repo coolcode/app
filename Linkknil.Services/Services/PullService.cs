@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Text;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
 using System.IO;
 
@@ -36,29 +37,30 @@ namespace Linkknil.Services {
                     throw response.Exception;
                 }
 
-                //默认按utf8编码读取html
-                string html;
-                var memoryStream = new MemoryStream();
-                response.Result.CopyTo(memoryStream);
-                using (var reader = new StreamReader(memoryStream, Encoding.UTF8)) {
-                    memoryStream.Position = 0;
-                    html = reader.ReadToEnd();
-                }
+                using (var memoryStream = new MemoryStream()) {
+                    response.Result.CopyTo(memoryStream);
+                    //默认按utf8编码读取html
+                    string html = ReadHtml(memoryStream, Encoding.UTF8);
 
-                //根据html的charset判断编码类型
-                Match charSetMatch = Regex.Match(html, "charset=(?<code>[a-zA-Z0-9_-]+)", RegexOptions.IgnoreCase);
-                string chartSet = charSetMatch.Groups["code"].Value;
-                if (!string.IsNullOrEmpty(chartSet) && !chartSet.Equals("utf-8", StringComparison.OrdinalIgnoreCase)) {
-                    using (var reader = new StreamReader(memoryStream, Encoding.GetEncoding(chartSet))) {
-                        memoryStream.Position = 0;
-                        html = reader.ReadToEnd();
+                    //根据html的charset判断编码类型
+                    Match charSetMatch = Regex.Match(html, "charset=(?<code>[a-zA-Z0-9_-]+)", RegexOptions.IgnoreCase);
+                    string chartSet = charSetMatch.Groups["code"].Value;
+                    if (!string.IsNullOrEmpty(chartSet) && !chartSet.Equals("utf-8", StringComparison.OrdinalIgnoreCase)) {
+                        html = ReadHtml(memoryStream, Encoding.GetEncoding(chartSet));
                     }
-                }
 
-                return html;
+                    return html;
+                }
             });
 
             return responseTask.Result;
+        }
+
+        private string ReadHtml(Stream stream, Encoding encoding) {
+            stream.Position = 0;
+            var reader = new StreamReader(stream, encoding);
+
+            return reader.ReadToEnd();
         }
     }
 

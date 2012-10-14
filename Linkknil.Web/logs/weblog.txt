@@ -8939,3 +8939,357 @@ System.Data.SqlClient.SqlException (0x80131904): 列名 'ImagePath' 无效。
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
    at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-14 10:43:24,975 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：执行任务发生异常，Job信息：[DigLinks:Linkknil.Services.CrawlJob,Linkknil.Jobs]
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Linkknil.Web.CommonJob.Execute(IJobExecutionContext context) in C:\Products\git\app\Linkknil.Web\App_Start\JobConfig.cs:line 47
+记录时间：2012-10-14 10:55:27,426 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 10:55:30,733 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/pd/,xpath://div[@class="conList"]/div/h2/a[@href],Id:671f595c-9307-4583-a73e-1a13c8b083a7) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 13
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 41
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:31,450 线程ID:[24] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/it,xpath://div[@class="conList"]/div/h2/a[@href],Id:be38648b-5d59-425a-9250-9127198506c6) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 13
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 41
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:32,308 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:32,870 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:34,305 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:34,617 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:35,007 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:35,413 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:35,756 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:36,052 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:36,427 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:55:36,723 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.AggregateException: One or more errors occurred. ---> System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+   --- End of inner exception stack trace ---
+   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at Linkknil.Services.PullService.PullHtml(String url) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 61
+   at Linkknil.Services.LinkService.PullContent(LinkItem link, Link digLink) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 103
+---> (Inner Exception #0) System.ArgumentException: Stream was not readable.
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding)
+   at Linkknil.Services.PullService.<PullHtml>b__6(Task`1 response) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 52
+   at System.Threading.Tasks.Task`1.<>c__DisplayClass1a`1.<ContinueWith>b__19()
+   at System.Threading.Tasks.Task`1.InvokeFuture(Object futureAsObj)
+   at System.Threading.Tasks.Task.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()<---
+
+记录时间：2012-10-14 10:56:04,273 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cnblogs.com/blog/picked/rss,xpath:,Id:f6b6d702-1e7e-4dce-a60d-1ff0ccd5276a) 发生异常！
+System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-14 10:56:04,288 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 11:10:45,531 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 11:12:07,492 线程ID:[8] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cnblogs.com/blog/picked/rss,xpath:,Id:f6b6d702-1e7e-4dce-a60d-1ff0ccd5276a) 发生异常！
+System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: 远程主机强迫关闭了一个现有的连接。. ---> System.Net.Sockets.SocketException: 远程主机强迫关闭了一个现有的连接。
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-14 11:12:13,986 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/pd/,xpath://div[@class="conList"]/div/h2/a[@href],Id:671f595c-9307-4583-a73e-1a13c8b083a7) 发生异常！
+System.Exception: Html找不到链接。地址：http://www.yixieshi.com/pd/, 模板：//div[@class="conList"]/div/h2/a[@href], Html:
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 22
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 41
+记录时间：2012-10-14 11:12:14,879 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://www.yixieshi.com/it,xpath://div[@class="conList"]/div/h2/a[@href],Id:be38648b-5d59-425a-9250-9127198506c6) 发生异常！
+System.Exception: Html找不到链接。地址：http://www.yixieshi.com/it, 模板：//div[@class="conList"]/div/h2/a[@href], Html:
+   at Linkknil.Services.PullService.PullLink(String url, String xpath) in C:\Products\git\app\Linkknil.Services\Services\PullService.cs:line 22
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 41
+记录时间：2012-10-14 11:12:14,886 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 11:20:11,531 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 11:21:54,239 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cnblogs.com/blog/picked/rss,xpath:,Id:f6b6d702-1e7e-4dce-a60d-1ff0ccd5276a) 发生异常！
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-14 11:21:54,248 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务

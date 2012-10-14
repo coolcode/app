@@ -1,4 +1,5 @@
 using System;
+using CoolCode.ServiceModel.Logging;
 using Quartz;
 using Quartz.Impl;
 
@@ -17,7 +18,7 @@ namespace Linkknil.Web {
                 .WithIdentity("PullUrlJob", "jobs")
                 .OfType(typeof(CommonJob))
                 .WithDescription("内容源抓取服务")
-                .UsingJobData("type", "Linkknil.Services.CrawlJob,Linkknil.Jobs")
+                .UsingJobData("type", "Linkknil.Jobs.CrawlJob,Linkknil.Services")
                 .UsingJobData("method", "DigLinks")
                 .Build();
 
@@ -35,13 +36,27 @@ namespace Linkknil.Web {
     }
 
     public class CommonJob : IJob {
+        private static readonly ILogger logger = LogManager.GetLogger(typeof(CommonJob));
+
         public void Execute(IJobExecutionContext context) {
             var map = context.JobDetail.JobDataMap;
             var typeName = (string)map["type"];
             var methodName = (string)map["method"];
-            var type = Type.GetType(typeName);
-            var method = type.GetMethod(methodName);
-            method.Invoke(Activator.CreateInstance(type), null);
+
+            logger.Info("开始执行:"+context.JobDetail.Description);
+
+            try {
+                var type = Type.GetType(typeName);
+                var method = type.GetMethod(methodName);
+                method.Invoke(Activator.CreateInstance(type), null);
+            }
+            catch (Exception ex) {
+                logger.Error("执行任务发生异常，Job信息：[" + methodName + ":" + typeName + "]", ex);
+            }
+            finally
+            {
+                logger.Info("结束执行:" + context.JobDetail.Description);
+            }
         }
     }
 }

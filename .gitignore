@@ -24,3 +24,4 @@ TestResults
 nuget-pack
 *.nuspec
 *.nupkg
+logs

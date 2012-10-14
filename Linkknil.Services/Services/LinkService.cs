@@ -101,10 +101,10 @@ namespace Linkknil.Services {
             try {
                 //读取内容
                 var html = pullService.PullHtml(digLink.Url);
-                var imagePath = DigFirstImage(html);
 
                 var nReadabilityTranscoder = new NReadabilityWebTranscoder();
                 var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(digLink.Url));
+                var imagePath = DigFirstImage(transResult.ExtractedContent);
 
                 //保存内容
                 var content = new Content {

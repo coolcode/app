@@ -1,0 +1,6 @@
+<configuration>
+<appSettings>
+  <add key="LOGENTRIES_TOKEN" value="" />
+  <add key="log4net.Internal.Debug" value="true" />
+</appSettings>
+</configuration>
