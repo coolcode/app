@@ -125,23 +125,44 @@ namespace Linkknil.Web.Controllers {
 
             var links = db.Links.Where(c => c.AppId == id && c.Status != (int)LinkStatus.Disabled).ToList();
 
-            if(links.Count ==0)
-            {
+            if (links.Count == 0) {
                 return this.Success("找不到相应链接！");
             }
 
             foreach (var link in links) {
                 linkService.DigLink(link);
-            } 
+            }
 
-            return this.Success("抓取成功！");
+            return this.Success("抓取完成！");
+        }
+
+        public ActionResult EnabledLink(string id) {
+            var link = db.Links.Find(id);
+            link.Status = (int) LinkStatus.Enabled;
+            db.SaveChanges();
+
+            return this.Success();
+        }
+
+        public ActionResult CrawlLink(string id) {
+            var linkService = new LinkService();
+
+            var link = db.Links.Find(id);
+
+            if (link == null) {
+                return this.Success("找不到相应链接！");
+            }
+
+            linkService.DigLink(link);
+
+            return this.Success("抓取完成！");
         }
 
         public ActionResult CrawlHistoryIndex() {
             return View();
         }
 
-        public ActionResult CrawlHistoryList(string appName, int page=0, string sort = "EndTime Desc") {
+        public ActionResult CrawlHistoryList(string appName, int page = 0, string sort = "EndTime Desc") {
             var q = db.Paging(new PageParam(page), sort, @"
 select d.*, l.Url as LinkUrl, a.Name as AppName from lnk_diglink d
 left join lnk_link l on d.LinkId = l.Id
@@ -152,5 +173,18 @@ where a.Name like '%'+ISNULL(@AppName,'')+'%'",
             return View(q);
         }
 
+        public ActionResult LinkIndex() {
+            return View();
+        }
+
+        public ActionResult LinkList(string appName, int page = 0, string sort = "CreateTime Desc") {
+            var q = db.Paging(new PageParam(page), sort, @"
+select l.*, a.Name as AppName from lnk_link l
+left join pf_app a on l.AppId = a.Id
+where a.Name like '%'+ISNULL(@AppName,'')+'%'",
+                new { AppName = appName });
+
+            return View(q);
+        }
     }
 }

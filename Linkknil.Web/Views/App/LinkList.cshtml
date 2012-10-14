@@ -1,0 +1,20 @@
+﻿@(
+ Html.Grid().Columns(c => {
+     c.Column("AppName").Header("应用名称").Sortable(true);
+     c.Column("Url").Header("链接").Sortable(true).Template(@<text> <a href="@item.Url" title="@item.Url" target="_blank">@(((string)item.Url).Cut(30))</a></text>);
+     c.Column("CreateTime").Header("创建时间").Sortable(true) ;
+     c.Column("HandleTime").Header("最后处理时间").Sortable(true);
+     c.Column("Status").Header("状态").Sortable(true).Dictionary("LinkStatus");
+     c.Column("PullType").Header("内容源类型").Sortable(true).Dictionary("PullType");
+     c.Column().Header("操作").Width(100).Align(Alignment.Center).Template(@<text>
+               @if(item.Status!=1){
+              @Html.AjaxLink("启用", "EnabledLink", new { id = item.Id })
+              }
+               @if(item.Status!=50){
+              @Html.AjaxLink("爬网", "CrawlLink", new { id = item.Id })
+              }
+          </text>);
+     })
+     .Sort(defaultSort: "CreateTime Desc")
+)
+     

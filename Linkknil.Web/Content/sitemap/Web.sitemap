@@ -6,6 +6,7 @@
       <siteMapNode action="PublishIndex" controller="App" title="上线应用"  description="" />
       <siteMapNode action="RejectIndex" controller="App" title="审核不通过应用"  description="" />
       <siteMapNode action="Index" controller="AppCategory" title="应用分类"  description="" />
+      <siteMapNode action="LinkIndex" controller="App" title="内容源"  description="" />
       <siteMapNode action="ContentIndex" controller="App" title="抓取内容"  description="" />
       <siteMapNode action="CrawlHistoryIndex" controller="App" title="爬网历史"  description="" />
     </siteMapNode>
