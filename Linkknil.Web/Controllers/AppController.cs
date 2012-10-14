@@ -123,7 +123,7 @@ namespace Linkknil.Web.Controllers {
         public ActionResult Pull(string id) {
             var linkService = new LinkService();
 
-            var links = db.Links.Where(c => c.AppId == id && c.Status == (int)LinkStatus.Enabled).ToList();
+            var links = db.Links.Where(c => c.AppId == id && c.Status != (int)LinkStatus.Disabled).ToList();
 
             if(links.Count ==0)
             {
