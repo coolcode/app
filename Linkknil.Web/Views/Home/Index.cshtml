@@ -176,9 +176,8 @@
         pagination: ".nav",
         next: "#nextpage",
         loader: "<img src='/content/css/waterfall/images/ajax-loader.gif'/>",
-       // onRenderComplete:
-       onLoadItems: function (items) {
-           // alert(items);
+        onRenderComplete: function (items) {
+            
             var $newElems = jQuery(items).addClass("newItem");
 
             $newElems.hide().imagesLoaded(function () {
