@@ -9,6 +9,7 @@ namespace Linkknil.Entities {
         public string Title { get; set; }
         public string Summary { get; set; }
         public DateTime PublishTime { get; set; }
+        public string AppId { get; set; }
         public string Author { get; set; }
         public string PublishTimeText { get { return PublishTime.ToString("yyyy-MM-dd HH:mm"); } }
 

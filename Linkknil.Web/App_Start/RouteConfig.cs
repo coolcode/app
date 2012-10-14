@@ -33,6 +33,19 @@ namespace Linkknil.Web
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //首页
+            routes.MapRoute(
+                name: "HomeGroupbyApp",
+                url: "apps/{appId}",
+                defaults: new { controller = "Home", action = "Index", appId = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "HomeGroupbyAppCategory",
+                url: "category/{categoryId}",
+                defaults: new { controller = "Home", action = "Index", categoryId = UrlParameter.Optional }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

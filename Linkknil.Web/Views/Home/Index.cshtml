@@ -18,7 +18,7 @@
 
                     <aside class="widget widget_search group">
                         <form action="/" id="searchform2" class="searchform" method="get" role="search">
-                            <input size="27" type="text" title="Search" id="s2" class="s" name="s"> <a id="searchsubmit2" class="searchsubmit"><img src="images/search.png" alt="GO"></a>
+                            <input size="27" type="text" title="关键字" id="s2" class="s" name="s" value="@ViewBag.Keywords"/> <a id="searchsubmit2" class="searchsubmit"><img src="~/content/waterfall/images/search.png" alt="GO"/></a>
                         </form>
                     </aside>
                 </div><!-- .header-wgt -->
@@ -28,12 +28,12 @@
         <div id="site-head">
             <div class="wrap group">
                 <hgroup class="logo">
-                    <h1><a href="index.html"> Linkknil 阅韵 @*<img src="demo/color-default.png" alt="">*@</a></h1>
+                    <h1><a href="/"> <img src="/content/images/logo.png" alt="阅韵logo">Linkknil 阅韵</a></h1>
                 </hgroup>
 
                 <div class="header-wgt group">
                     @*<aside class="widget group widget_ci_social_widget"><a href="#" class="icn twitter">Twitter</a> <a href="#" class="icn facebook">Facebook</a> <a href="#" class="icn pinterest">Pinterest</a> <a href="#" class="icn youtube">Youtube</a></aside>
-*@
+*@                  
                     <aside class="widget widget_search group">
                         <form action="/" id="searchform1" class="searchform" method="get" role="search">
                             <input size="27" type="text" title="Search" id="s1" class="s" name="s"> <a id="searchsubmit1" class="searchsubmit"><img src="~/content/css/waterfall/images/search.png" alt="GO"></a>
@@ -46,21 +46,18 @@
         <nav>
             <div class="wrap group">
                 <ul id="navigation" class="group">
-                    <li class="current_page_item"><a href="/">Home</a></li>
-                    <li><a href="page.html">总文章数(@Model.TotalRecords)</a></li>
-                    <li><a href="page-double.html">Double Width Page</a></li>
+                    <li class="current_page_item"><a href="/">首页</a></li>
+                    <li><a href="#">关注</a></li>
+                    <li><a href="#">书签</a></li>
+                    <li><a href="#">热门</a></li>
                     <li>
-                        <a href="#">Post Formats</a>
+                        <a href="#">分类</a>
                         <ul>
-                            <li><a href="format-standard.html">Standard Format</a></li>
-                            <li><a href="format-image.html">Image Format</a></li>
-                            <li><a href="format-gallery.html">Gallery Format</a></li>
-                            <li><a href="format-video.html">Video Format</a></li>
-                            <li><a href="format-audio.html">Audio Format</a></li>
-                            <li><a href="format-quote.html">Quote Format</a></li>
+                            @foreach (AppCategory category in ViewBag.AppCategories) {
+                            <li><a href="/category/@category.Id">@category.Name</a></li>
+                            }
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div><!-- .wrap < nav -->
         </nav>
@@ -121,9 +118,10 @@
                                 <p>@item.Summary</p>
                                 </div>
                                 <div class="entry-meta group">
-                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="" class="alignleft" />
-                            
-                            <p><strong>@item.Author  </strong></p>
+                  <a href="/apps/@item.AppId" target="_blank">
+                  <img src="/Image/AppIcon/@item.IconPath" width="50px" height="50px" alt="@item.Author" class="alignleft" />
+                            </a>
+                            <p><strong><a href="/apps/@item.AppId" target="_blank">@item.Author </a> </strong></p>
                             <p> <span> 发布于 @item.PublishTimeText</span></p>
                                 </div>
                                @* <div class="entry-meta group">
@@ -134,13 +132,22 @@
                             </div>
                             }
                         </article>
-                }
-
-                  
+                } 
                     </div><!-- #entry-listing -->
 
                     <div class="nav">
-                        <a id="nextpage" href="/?page=@(Model.PageIndex+1)">Next Page</a>
+                        @{if (!string.IsNullOrEmpty(ViewBag.CategoryId)) {
+                        <a id="nextpage" href="/category/@(ViewBag.CategoryId)?page=@(Model.PageIndex + 1)">Next Page</a>
+                        }
+                        else if (!string.IsNullOrEmpty(ViewBag.AppId)) {
+                        <a id="nextpage" href="/apps/@(ViewBag.AppId)?page=@(Model.PageIndex + 1)">Next Page</a>
+                        }
+                          else if (!string.IsNullOrEmpty(ViewBag.Keywords)) {
+                        <a id="nextpage" href="/?s=@(ViewBag.Keywords)&page=@(Model.PageIndex + 1)">Next Page</a>
+                          }
+                          else {
+                        <a id="nextpage" href="/?page=@(ViewBag.NextPage)">Next Page</a>
+                          }}
                     </div>
                 </div>
             </div><!-- .wrap < #main -->
@@ -149,7 +156,7 @@
         <footer id="footer">
             <div class="wrap group">
                 <div class="footer-text">
-                    <a href="/">Linkknil</a> &mdash; 关注阅读体验.
+                    <a href="/">Linkknil</a> &mdash; 关注阅读体验. 总共： @Model.TotalRecords 
                 </div>
             </div>
         </footer>

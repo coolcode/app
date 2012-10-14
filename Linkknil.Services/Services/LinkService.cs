@@ -117,7 +117,7 @@ namespace Linkknil.Services {
                     TimeSpan = (int)(DateTime.Now - beginTime).TotalSeconds,
                     Url = digLink.Url,
                     Title = html.GetHtmlTitle().Cut(100),
-                    Text = html.HtmlToText(),
+                    Text = transResult.ExtractedContent.HtmlToText(),
                     Html = html,
                     Tag = "",
                     Response = "",

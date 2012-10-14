@@ -214,6 +214,7 @@
     <Content Include="Content\css\waterfall\images\social-icons.png" />
     <Content Include="Content\css\waterfall\images\sprites.png" />
     <Content Include="Content\css\waterfall\style.css" />
+    <Content Include="Content\favicon.ico" />
     <Content Include="Content\images\apps\1.png" />
     <Content Include="Content\images\apps\2.png" />
     <Content Include="Content\images\apps\3.png" />
@@ -230,6 +231,7 @@
     <Content Include="Content\images\icons\pencil_48.png" />
     <Content Include="Content\images\icons\refresh.png" />
     <Content Include="Content\images\icons\write.png" />
+    <Content Include="Content\images\logo.png" />
     <Content Include="Content\js\chart\jChart.js" />
     <Content Include="Content\js\chart\SL.Visifire.Charts.xap" />
     <Content Include="Content\js\chart\Visifire.js" />

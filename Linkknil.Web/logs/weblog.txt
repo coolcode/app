@@ -9570,3 +9570,96 @@ Parameter name: linkText
 记录时间：2012-10-14 19:30:04,482 线程ID:[DefaultQuartzScheduler_Worker-2] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
 记录时间：2012-10-14 20:30:01,139 线程ID:[DefaultQuartzScheduler_Worker-3] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
 记录时间：2012-10-14 20:30:11,248 线程ID:[DefaultQuartzScheduler_Worker-3] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 21:29:59,080 线程ID:[DefaultQuartzScheduler_Worker-4] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 21:30:06,326 线程ID:[DefaultQuartzScheduler_Worker-4] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 21:38:50,237 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 21:39:00,125 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 21:44:55,753 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 21:45:01,100 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 22:30:26,090 线程ID:[5] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:controller=Home&action=Index
+	
+System.Web.HttpCompileException (0x80004005): c:\Products\git\app\Linkknil.Web\Views\Home\Index.cshtml(123): error CS1061: 'Linkknil.Entities.ContentViewModel' does not contain a definition for 'AppId' and no extension method 'AppId' accepting a first argument of type 'Linkknil.Entities.ContentViewModel' could be found (are you missing a using directive or an assembly reference?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetObjectFactory(String virtualPath, Boolean throwIfNotFound)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.<>c__DisplayClass4.<GetPathFromGeneralName>b__0(String path)
+   at System.Web.WebPages.DefaultDisplayMode.GetDisplayInfo(HttpContextBase httpContext, String virtualPath, Func`2 virtualPathExists)
+   at System.Web.WebPages.DisplayModeProvider.<>c__DisplayClassb.<GetDisplayInfoForVirtualPath>b__8(IDisplayMode mode)
+   at System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source, Func`2 predicate)
+   at System.Web.WebPages.DisplayModeProvider.GetDisplayInfoForVirtualPath(String virtualPath, HttpContextBase httpContext, Func`2 virtualPathExists, IDisplayMode currentDisplayMode, Boolean requireConsistentDisplayMode)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromGeneralName(ControllerContext controllerContext, List`1 locations, String name, String controllerName, String areaName, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClassc.<FindView>b__b(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<InvokeActionResultWithFilters>b__17()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilter(IResultFilter filter, ResultExecutingContext preContext, Func`1 continuation)
+   at System.Web.Mvc.ControllerActionInvoker.<>c__DisplayClass1a.<>c__DisplayClass1c.<InvokeActionResultWithFilters>b__19()
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-14 22:32:23,648 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 22:32:29,315 线程ID:[13] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Mvc.ControllerBase property:[(null)] - 错误描述：系统出现未处理错误:
+	User:admin,Controller:Linkknil.Web.Controllers.HomeController, Action: Index, RouteData:appId=d9ea22df-e5ca-463c-9c51-e7d635b4f395&controller=Home&action=Index
+	
+System.Data.SqlClient.SqlException (0x80131904): 列名 'AppId' 无效。
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader()
+   at CoolCode.Data.SqlMapper.<QueryInternal>d__d`1.MoveNext() in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\SqlMapper.cs:line 744
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at CoolCode.Data.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\SqlMapper.cs:line 703
+   at CoolCode.Data.Entity.DbContextExtensions.<>c__DisplayClass7`1.<Query>b__6(DbConnection cnn) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 93
+   at CoolCode.Data.Entity.DbContextExtensions.Do[TResult](DbContext db, Func`2 func) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 107
+   at CoolCode.Data.Entity.DbContextExtensions.Query[T](DbContext db, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 93
+   at CoolCode.Data.Entity.DbContextExtensions.Get[T](DbContext db, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 34
+   at CoolCode.Data.Entity.DbContextExtensions.Paging[T](DbContext db, PageParam page, String orderby, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in C:\Products\git\MvcFramework\src\CoolCode.Core\Data\Entity\DbContextExtensions.cs:line 44
+   at Linkknil.Web.Controllers.HomeController.QueryContent(String categoryId, String appId, Int32 page) in C:\Products\git\app\Linkknil.Web\Controllers\HomeController.cs:line 53
+   at Linkknil.Web.Controllers.HomeController.Index(String categoryId, String appId, Int32 page) in C:\Products\git\app\Linkknil.Web\Controllers\HomeController.cs:line 22
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass42.<BeginInvokeSynchronousActionMethod>b__41()
+   at System.Web.Mvc.Async.AsyncResultWrapper.<>c__DisplayClass8`1.<BeginSynchronous>b__7(IAsyncResult _)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<>c__DisplayClass39.<BeginInvokeActionMethodWithFilters>b__33()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass4f.<InvokeActionMethodFilterAsynchronously>b__49()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass37.<BeginInvokeActionMethodWithFilters>b__36(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<>c__DisplayClass2a.<BeginInvokeAction>b__20()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass25.<BeginInvokeAction>b__22(IAsyncResult asyncResult)
+记录时间：2012-10-14 22:32:33,599 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 22:34:07,801 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 22:34:17,220 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 22:51:01,095 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 22:51:06,868 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 23:01:18,419 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 23:01:26,428 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-14 23:06:23,041 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-14 23:06:27,606 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务

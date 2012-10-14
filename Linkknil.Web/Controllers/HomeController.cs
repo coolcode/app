@@ -18,24 +18,45 @@ namespace Linkknil.Web.Controllers {
 
         #region Home
 
-        public ActionResult Index(int page=0)
-        {
-            var archives = QueryContent(page);
+        public ActionResult Index(string categoryId, string appId, string s, int page = 0) {
+            var archives = QueryContent(categoryId, appId, s, page);
+
+            ViewBag.AppCategories = db.Query<AppCategory>("select Id,[Name] from PF_AppCategory where status = 1 order by [sort]");
+            ViewBag.CategoryId = categoryId;
+            ViewBag.AppId = appId;
+            ViewBag.Keywords = s;
+            ViewBag.NextPage = archives.Count > 0 ? page + 1 : page;
 
             return View(archives);
         }
 
-        public ActionResult ArchiveList(int page=1) {
+        public ActionResult ArchiveList(int page = 1) {
             var archive = new ArchiveController();
 
             return archive.Top();
         }
 
-        private IPaginatedList<ContentViewModel> QueryContent(int page) {
-            return db.Paging<ContentViewModel>(new PageParam(page,30),"PublishTime desc", 
-                @"select c.Id, c.Title, substring(c.Text,1,100) Summary, c.EndTime as [PublishTime], a.Name as Author, a.IconPath, c.ImagePath 
+        private IPaginatedList<ContentViewModel> QueryContent(string categoryId, string appId, string s, int page) {
+            var sql =
+                @"select c.Id, c.Title, substring(c.Text,1,100) Summary, c.EndTime as [PublishTime], a.Name as Author, a.Id as AppId, a.IconPath, c.ImagePath 
 from lnk_content c
-left join pf_app a on c.AppId = a.Id");
+left join pf_app a on c.AppId = a.Id
+where 1=1 ";
+
+            if (!string.IsNullOrEmpty(categoryId)) {
+                sql += string.Format("and a.CategoryId = @CategoryId ");
+            }
+
+            if (!string.IsNullOrEmpty(appId)) {
+                sql += string.Format("and a.Id = @AppId ");
+            }
+
+            if(!string.IsNullOrEmpty(s))
+            {
+                sql += string.Format("and (c.Title like @Keywords or a.Name like @Keywords) ");
+            }
+
+            return db.Paging<ContentViewModel>(new PageParam(page, 20), "PublishTime desc", sql, new { CategoryId = categoryId, AppId = appId, Keywords ="%"+s+"%" });
 
         }
 
@@ -72,7 +93,8 @@ left join pf_app a on c.AppId = a.Id");
                 }
 
                 return this.Success(new { url = returnUrl });
-            } else {
+            }
+            else {
                 return this.Fail("用户名或密码错误！");
             }
         }
@@ -101,7 +123,8 @@ left join pf_app a on c.AppId = a.Id");
                 if (createStatus == MembershipCreateStatus.Success) {
                     FormsAuthenticationService.SignIn(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
-                } else {
+                }
+                else {
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
