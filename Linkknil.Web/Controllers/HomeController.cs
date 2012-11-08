@@ -60,8 +60,8 @@ where 1=1 ";
 
         }
 
-        public ActionResult Search() {
-            return View();
+        public ActionResult Search(string s, int page = 0) {
+            return View("Index");
         }
 
         public ActionResult About() {

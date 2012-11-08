@@ -26,7 +26,8 @@ namespace Linkknil.ConsoleKits {
 
         static void Main(string[] args)
         {
-            RssServiceTest();
+            //RssServiceTest();
+            SearchServiceTest();
             //AliyunFileServiceTest();
             //var store = new NavenStore();
             //store.SaveFile();
@@ -35,6 +36,32 @@ namespace Linkknil.ConsoleKits {
 
             return;
             Console.Read();
+        }
+
+        private static void SearchServiceTest()
+        {
+            var ss = new SearchService();
+            ss.Index();
+
+            Console.WriteLine("index success...");
+            Console.WriteLine("query bits...");
+
+            var result = ss.Search("bits");
+
+            Console.WriteLine("result:");
+            foreach (var item in result)
+            {
+                Console.WriteLine("{0}",item.Title);
+            }
+
+            Console.WriteLine("query 苹果...");
+
+            result = ss.Search("苹果");
+
+            Console.WriteLine("result:");
+            foreach (var item in result) {
+                Console.WriteLine("{0}", item.Title);
+            }
         }
 
         private static void RssServiceTest()

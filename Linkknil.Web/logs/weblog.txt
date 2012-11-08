@@ -9663,3 +9663,59 @@ System.Data.SqlClient.SqlException (0x80131904): 列名 'AppId' 无效。
 记录时间：2012-10-14 23:01:26,428 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
 记录时间：2012-10-14 23:06:23,041 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
 记录时间：2012-10-14 23:06:27,606 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-15 09:59:02,971 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-15 09:59:31,641 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-15 13:11:27,437 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-15 13:11:55,754 线程ID:[26] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-15 13:13:07,600 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://blog.jobbole.com/feed/,xpath:,Id:3aa932d3-1f1d-492d-a381-87bbdbe1ff31) 发生异常！
+System.Net.WebException: The operation has timed out
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-15 13:14:47,498 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-15 17:23:13,013 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-15 17:23:21,451 线程ID:[21] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-15 17:23:53,536 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-16 10:32:30,081 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-16 10:33:01,020 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-16 12:51:13,850 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-16 12:51:18,425 线程ID:[22] 日志级别：ERROR 出错类：CoolCode.ServiceModel.Services.ServiceBase property:[(null)] - 错误描述：Link(url:http://feed.cninin.com/,xpath:,Id:c6873585-ff92-4890-b932-9710c6ce7965) 发生异常！
+System.Net.WebException: The remote server returned an error: (500) Internal Server Error.
+   at System.Net.HttpWebRequest.GetResponse()
+   at System.Xml.XmlDownloadManager.GetNonFileStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy, RequestCachePolicy cachePolicy)
+   at System.Xml.XmlUrlResolver.GetEntity(Uri absoluteUri, String role, Type ofObjectToReturn)
+   at System.Xml.XmlReaderSettings.CreateReader(String inputUri, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri, XmlReaderSettings settings, XmlParserContext inputContext)
+   at System.Xml.XmlReader.Create(String inputUri)
+   at Linkknil.Services.RssService.PullLink(String url) in C:\Products\git\app\Linkknil.Services\Services\RssService.cs:line 11
+   at Linkknil.Services.LinkService.DigLink(LinkItem link) in C:\Products\git\app\Linkknil.Services\Services\LinkService.cs:line 37
+记录时间：2012-10-16 12:51:24,092 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
+记录时间：2012-10-16 15:17:34,213 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：开始执行:内容源抓取服务
+记录时间：2012-10-16 15:19:16,695 线程ID:[DefaultQuartzScheduler_Worker-1] 日志级别：INFO  出错类：Linkknil.Web.CommonJob property:[(null)] - 错误描述：结束执行:内容源抓取服务
