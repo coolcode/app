@@ -10,6 +10,20 @@ using NReadability;
 
 namespace Linkknil.ConsoleKits {
     class Program {
+
+        static void Main(string[] args)
+        {
+            //RssServiceTest();
+            //SearchServiceTest();
+            AliyunFileServiceTest();
+            //var store = new NavenStore();
+            //store.SaveFile();
+            Console.WriteLine("ok");
+            Console.Read();
+
+            return;
+        }
+
         class UrlPattern {
             public UrlPattern() {
 
@@ -22,20 +36,6 @@ namespace Linkknil.ConsoleKits {
 
             public string Url { get; set; }
             public string Pattern { get; set; }
-        }
-
-        static void Main(string[] args)
-        {
-            //RssServiceTest();
-            SearchServiceTest();
-            //AliyunFileServiceTest();
-            //var store = new NavenStore();
-            //store.SaveFile();
-            Console.WriteLine("ok");
-            Console.Read();
-
-            return;
-            Console.Read();
         }
 
         private static void SearchServiceTest()
@@ -83,7 +83,7 @@ namespace Linkknil.ConsoleKits {
 
             var file = File.ReadAllBytes("a.jpg");
             Stream stream = new MemoryStream(file);
-            var id = DateTime.Now.ToFileTime().ToString();
+            var id = DateTime.Now.ToFileTime().ToString()+".jpg";
 
             fileService.Save(id, stream);
 
@@ -94,7 +94,7 @@ namespace Linkknil.ConsoleKits {
             byte[] byData = new byte[1024];
             int i = 0;
             int len;
-            var r = new FileStream(id + ".jpg", FileMode.OpenOrCreate);
+            var r = new FileStream(id , FileMode.OpenOrCreate);
             while ((len = reader.Read(byData, 0, 1024)) > 0) {
                 r.Write(byData, 0, len);
                 i += len;

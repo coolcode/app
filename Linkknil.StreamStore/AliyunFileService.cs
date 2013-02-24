@@ -11,12 +11,13 @@ namespace Linkknil.StreamStore {
             new OssClient(ConfigurationManager.AppSettings["Aliyun_ApiKey"], ConfigurationManager.AppSettings["Aliyun_ApiSecret"]);
 
         public void Save(string id, System.IO.Stream stream) {
-            var result = service.PutObject("icons", id, stream, new ObjectMetadata());
+            var result = service.PutObject("cc-images", "small/" +id, stream, new ObjectMetadata());// { ContentType = "image/jpeg" }
+             
             Console.WriteLine("ETAG:",result.ETag);
         }
 
         public System.IO.Stream Get(string id) {
-            var result = service.GetObject("icons", id);
+            var result = service.GetObject("cc-images", "small/" + id);
 
             return result.Content;
         }
