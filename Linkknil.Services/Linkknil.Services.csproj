@@ -99,6 +99,10 @@
       <Project>{340615AE-E92C-47D8-90D8-259A4BB1B5FB}</Project>
       <Name>Linkknil.OAuth</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Linkknil.StreamStore\Linkknil.StreamStore.csproj">
+      <Project>{e6aeff16-f96d-4810-a55f-20f60865f4d6}</Project>
+      <Name>Linkknil.StreamStore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NReadability\NReadability.csproj">
       <Project>{0CCC740D-2907-437B-B5FF-F473DFA02382}</Project>
       <Name>NReadability</Name>

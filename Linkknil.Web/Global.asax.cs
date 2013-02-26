@@ -23,7 +23,7 @@ namespace Linkknil.Web {
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            JobConfig.RegisterJobs();
+           // JobConfig.RegisterJobs();
         }
 
         private static void RegisterDependencies() {

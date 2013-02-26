@@ -34,6 +34,9 @@
     <Reference Include="Aliyun.OpenServices">
       <HintPath>..\packages\Aliyun\Aliyun.OpenServices.dll</HintPath>
     </Reference>
+    <Reference Include="CoolCode.Core">
+      <HintPath>..\packages\Referencies\CoolCode.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\packages\RavenDB\Raven.Abstractions.dll</HintPath>
     </Reference>
@@ -41,8 +44,10 @@
       <HintPath>..\packages\RavenDB\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
@@ -50,10 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AliyunFileService.cs" />
+    <Compile Include="IObjectStore.cs" />
     <Compile Include="WebFileService.cs" />
     <Compile Include="IFileService.cs" />
     <Compile Include="NavenStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

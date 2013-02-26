@@ -19,7 +19,7 @@ left join pf_app a on c.AppId = a.Id
 where 1=1 ";
 
             var contents = db.Query<ContentViewModel>(sql);
-
+             
             foreach (var item in contents) {
                 Index(item);
                 Console.WriteLine("Index:{0} on {1}",item.Title, DateTime.Now);

@@ -9,7 +9,7 @@ body {
 }
 
 #header {
-  border-top: 7px solid #c4d9e4;
+  border-top: 1px solid #c4d9e4;
 }
 
 .page blockquote, .format-standard blockquote {
@@ -20,7 +20,7 @@ body {
 
 .format-standard.entry blockquote p {
   line-height: 1.3em;
-  font-family: Lato, serif;;
+  font-family: Lato, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,7 +45,7 @@ p a:hover {
 
 /* Nav */
 #navigation > li > ul {
-  border-top: 4px solid #C4D9E4;
+  border-top: 1px solid #C4D9E4;
 }
 
 #navigation > li > ul li a:hover {

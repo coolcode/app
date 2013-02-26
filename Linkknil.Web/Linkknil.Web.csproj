@@ -16,6 +16,10 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -231,6 +235,9 @@
     <Content Include="Content\images\icons\pencil_48.png" />
     <Content Include="Content\images\icons\refresh.png" />
     <Content Include="Content\images\icons\write.png" />
+    <Content Include="Content\images\lazyload\grey.gif" />
+    <Content Include="Content\images\lazyload\transparent.gif" />
+    <Content Include="Content\images\lazyload\white.gif" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\js\chart\jChart.js" />
     <Content Include="Content\js\chart\SL.Visifire.Charts.xap" />
@@ -282,6 +289,8 @@
     <Content Include="Content\js\jquery\plugins\fancybox\jquery.fancybox.js" />
     <Content Include="Content\js\jquery\plugins\fancybox\jquery.fancybox.pack.js" />
     <Content Include="Content\js\jquery\plugins\fancybox\jquery.mousewheel.pack.js" />
+    <Content Include="Content\js\jquery\plugins\lazyload\jquery.lazyload.js" />
+    <Content Include="Content\js\jquery\plugins\lazyload\jquery.lazyload.min.js" />
     <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmpl.js" />
     <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmpl.min.js" />
     <Content Include="Content\js\jquery\plugins\tmpl\jquery.tmplPlus.js" />

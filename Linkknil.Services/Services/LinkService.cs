@@ -10,6 +10,7 @@ using Linkknil.Entities;
 using Linkknil.Models;
 using NReadability;
 using System.Threading.Tasks;
+using Linkknil.StreamStore;
 
 namespace Linkknil.Services {
     public class LinkService : ServiceBase<LinkknilContext> {
@@ -100,15 +101,19 @@ namespace Linkknil.Services {
             }
             try {
                 //读取内容
+                var contentId = Guid.NewGuid().ToString();
                 var html = pullService.PullHtml(digLink.Url);
 
                 var nReadabilityTranscoder = new NReadabilityWebTranscoder();
                 var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(digLink.Url));
                 var imagePath = DigFirstImage(transResult.ExtractedContent);
 
+                var contentService = new AliyunFileService();
+                contentService.SaveContent(contentId+".html", transResult.ExtractedContent);
+
                 //保存内容
                 var content = new Content {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = contentId,
                     LinkId = link.Id,
                     AppId = link.AppId,
                     DeveloperId = db.Get<string>(@"select top 1 DeveloperId from PF_App a where a.Id = @AppId ", new { link.AppId }),

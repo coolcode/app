@@ -11,14 +11,19 @@ using NReadability;
 namespace Linkknil.ConsoleKits {
     class Program {
 
-        static void Main(string[] args)
-        {
+        static void Main(string[] args) {
             //RssServiceTest();
             //SearchServiceTest();
-            AliyunFileServiceTest();
+            //  AliyunFileServiceTest();
+            Stopwatch watch = Stopwatch.StartNew();
+
+
+            AliyunMultiObjectServiceTest();
+
             //var store = new NavenStore();
             //store.SaveFile();
-            Console.WriteLine("ok");
+            watch.Stop();
+            Console.WriteLine("ok！总花时：{0}", watch.Elapsed);
             Console.Read();
 
             return;
@@ -32,14 +37,19 @@ namespace Linkknil.ConsoleKits {
             public UrlPattern(string url, string pattern) {
                 this.Url = url;
                 this.Pattern = pattern;
+                this.CreateTime = DateTime.Now;
             }
 
             public string Url { get; set; }
             public string Pattern { get; set; }
+            public DateTime CreateTime { get; set; }
+
+            public override string ToString() {
+                return string.Format("(Url:{0}, Pattern:{1}, CreateTime:{2})", Url, Pattern, CreateTime);
+            }
         }
 
-        private static void SearchServiceTest()
-        {
+        private static void SearchServiceTest() {
             var ss = new SearchService();
             ss.Index();
 
@@ -49,9 +59,8 @@ namespace Linkknil.ConsoleKits {
             var result = ss.Search("bits");
 
             Console.WriteLine("result:");
-            foreach (var item in result)
-            {
-                Console.WriteLine("{0}",item.Title);
+            foreach (var item in result) {
+                Console.WriteLine("{0}", item.Title);
             }
 
             Console.WriteLine("query 苹果...");
@@ -64,14 +73,12 @@ namespace Linkknil.ConsoleKits {
             }
         }
 
-        private static void RssServiceTest()
-        {
+        private static void RssServiceTest() {
             var url = "http://www.leiphone.com/feed";
             var rss = new RssService();
             var links = rss.PullLink(url);
-            foreach (var link in links)
-            {
-                Console.WriteLine("{0}: {1}",link.Title, link.Url);
+            foreach (var link in links) {
+                Console.WriteLine("{0}: {1}", link.Title, link.Url);
             }
         }
 
@@ -79,11 +86,52 @@ namespace Linkknil.ConsoleKits {
             FileServiceTest(new AliyunFileService());
         }
 
+        private static void AliyunObjectServiceTest() {
+            var objectStore = new AliyunFileService();
+
+            Stopwatch watch = Stopwatch.StartNew();
+            objectStore.SaveObject("obj1", new UrlPattern("http://foo", "abc中文测试"), "demo");
+            watch.Stop();
+
+            Console.WriteLine("保存数据花时：{0}", watch.Elapsed);
+
+            watch.Start();
+            var obj = objectStore.GetObject<UrlPattern>("obj1", "demo");
+            watch.Stop();
+
+            Console.WriteLine("读取数据花时：{0}", watch.Elapsed);
+            Console.WriteLine(obj);
+        }
+
+        private static void AliyunMultiObjectServiceTest() {
+            var objectStore = new AliyunFileService();
+            objectStore.ListObjects<UrlPattern>("demo");
+            return;
+
+            int count = 10;
+            Stopwatch watch = Stopwatch.StartNew();
+            for (int i = 0; i < count; i++) {
+                objectStore.SaveObject("obj" + i, new UrlPattern("http://foo", "abc中文测试" + i), "demo");
+            }
+            watch.Stop();
+
+            Console.WriteLine("保存数据花时：{0}", watch.Elapsed);
+
+            watch.Start();
+            for (int i = 0; i < count; i++) {
+                var obj = objectStore.GetObject<UrlPattern>("obj" + i, "demo");
+                Console.WriteLine(obj);
+            }
+            watch.Stop();
+
+            Console.WriteLine("读取数据花时：{0}", watch.Elapsed);
+        }
+
         private static void FileServiceTest(IFileService fileService) {
 
             var file = File.ReadAllBytes("a.jpg");
             Stream stream = new MemoryStream(file);
-            var id = DateTime.Now.ToFileTime().ToString()+".jpg";
+            var id = DateTime.Now.ToFileTime().ToString() + ".jpg";
 
             fileService.Save(id, stream);
 
@@ -94,7 +142,7 @@ namespace Linkknil.ConsoleKits {
             byte[] byData = new byte[1024];
             int i = 0;
             int len;
-            var r = new FileStream(id , FileMode.OpenOrCreate);
+            var r = new FileStream(id, FileMode.OpenOrCreate);
             while ((len = reader.Read(byData, 0, 1024)) > 0) {
                 r.Write(byData, 0, len);
                 i += len;

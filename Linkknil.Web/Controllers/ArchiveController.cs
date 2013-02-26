@@ -8,6 +8,7 @@ using CoolCode.Linq;
 using CoolCode.Data.Entity;
 using CoolCode.ServiceModel.Mvc;
 using Linkknil.Entities;
+using Linkknil.StreamStore;
 
 namespace Linkknil.Web.Controllers {
     public class ArchiveController : SharedController<Linkknil.Models.LinkknilContext> {
@@ -19,7 +20,15 @@ namespace Linkknil.Web.Controllers {
         }
 
         public ActionResult Details(string id) {
-            var html = db.Contents.Where(c => c.Id == id).Select(c => c.FriendlyHtml).FirstOrDefault();
+            var contentService = new AliyunFileService();
+            var html = string.Empty;//
+            try {
+                html = contentService.GetContent(id);
+            }
+            catch (Exception ex){
+                html = db.Contents.Where(c => c.Id == id).Select(c => c.FriendlyHtml).FirstOrDefault();
+                Logger.Error(ex);
+            }
 
             return this.Content(html, "text/html", Encoding.UTF8);
         }
