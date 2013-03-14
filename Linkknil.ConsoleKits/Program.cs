@@ -12,13 +12,14 @@ namespace Linkknil.ConsoleKits {
     class Program {
 
         static void Main(string[] args) {
+            Stopwatch watch = Stopwatch.StartNew();
+
             //RssServiceTest();
             //SearchServiceTest();
             //  AliyunFileServiceTest();
-            Stopwatch watch = Stopwatch.StartNew();
-
-
-            AliyunMultiObjectServiceTest();
+            // AliyunSearchServiceTest();
+            ReadabilityTest();
+            //AliyunMultiObjectServiceTest();
 
             //var store = new NavenStore();
             //store.SaveFile();
@@ -49,9 +50,16 @@ namespace Linkknil.ConsoleKits {
             }
         }
 
-        private static void SearchServiceTest() {
-            var ss = new SearchService();
-            ss.Index();
+        private static void AliyunSearchServiceTest() {
+            SearchServiceTest(new AliyunSearchService());
+        }
+
+        private static void SearchCloudSearch() {
+            SearchServiceTest(new SearchService());
+        }
+
+        private static void SearchServiceTest(ISearchService ss) { 
+           ss.Index();
 
             Console.WriteLine("index success...");
             Console.WriteLine("query bits...");
@@ -150,6 +158,15 @@ namespace Linkknil.ConsoleKits {
 
             r.Close();
         }
+
+        private static void ReadabilityTest() {
+            var url = "http://www.leiphone.com/304-keats-app-developer.html";
+            var nReadabilityTranscoder = new NReadabilityWebTranscoder();
+            var transResult = nReadabilityTranscoder.Transcode(new WebTranscodingInput(url));
+           // Console.WriteLine(transResult.ExtractedContent);
+            File.WriteAllText(string.Format("{0:yyyy-MM-dd HH.mm.ss}.html", DateTime.Now), transResult.ExtractedContent);
+        }
+
 
         private static PushResult PushToReadability(IEnumerable<string> urls, string mainUrl, ReadabilityService readabilityService) {
             var pushResult = new PushResult();

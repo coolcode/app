@@ -10,7 +10,7 @@ using Linkknil.Models;
 using Nest;
 
 namespace Linkknil.Services {
-    public class SearchService : ServiceBase<LinkknilContext> {
+    public class SearchService : ServiceBase<LinkknilContext>, ISearchService {
         public void Index() {
             var sql =
                   @"select top 10 c.Id, c.Title,  c.Text, c.FriendlyHtml, c.EndTime as [PublishTime], a.Name as Author, a.Id as AppId, a.IconPath, c.ImagePath 
