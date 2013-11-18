@@ -7,8 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
-using CoolCode.Data.Entity;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Data.Entity;
+using EaseEasy.ServiceModel.Mvc;
 using Linkknil.Services;
 using Linkknil.StreamStore;
 

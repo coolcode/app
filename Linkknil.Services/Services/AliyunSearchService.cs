@@ -1,6 +1,6 @@
 ﻿using AliCould.com.API;
-using CoolCode.Data.Entity;
-using CoolCode.ServiceModel.Services;
+using EaseEasy.Data.Entity;
+using EaseEasy.ServiceModel.Services;
 using Linkknil.Entities;
 using Linkknil.Models;
 using Newtonsoft.Json.Linq;

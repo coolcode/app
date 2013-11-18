@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using CoolCode.Linq;
-using CoolCode.Data.Entity;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Linq;
+using EaseEasy.Data.Entity;
+using EaseEasy.ServiceModel.Mvc;
 using Linkknil.Entities;
 using Linkknil.StreamStore;
 

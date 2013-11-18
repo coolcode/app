@@ -1,11 +1,14 @@
 using System;
-using CoolCode.ServiceModel.Logging;
+using EaseEasy.ServiceModel.Logging;
 using Quartz;
 using Quartz.Impl;
 
 namespace Linkknil.Web {
     public class JobConfig {
         public static void RegisterJobs() {
+            if (System.Configuration.ConfigurationManager.AppSettings["job-enabled"] != "true") {
+                return;
+            }
             // construct a scheduler factory
             ISchedulerFactory schedFact = new StdSchedulerFactory();
 
@@ -26,7 +29,7 @@ namespace Linkknil.Web {
             var trigger = TriggerBuilder.Create()
                 .ForJob(jobDetail)
                 .StartAt(DateTimeOffset.Now.AddMinutes(1))
-                .WithSimpleSchedule(x => x.WithIntervalInHours(1).RepeatForever())
+                .WithSimpleSchedule(x => x.WithIntervalInMinutes(3).RepeatForever())
                 .Build();
 
             sched.ScheduleJob(jobDetail, trigger);

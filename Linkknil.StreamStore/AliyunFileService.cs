@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using Aliyun.OpenServices.OpenStorageService;
 using System.IO;
-using CoolCode;
+using EaseEasy;
 
 namespace Linkknil.StreamStore {
     public class AliyunFileService : IFileService, IObjectStore {

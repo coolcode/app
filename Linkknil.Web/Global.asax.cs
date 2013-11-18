@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
-using CoolCode.ServiceModel.Mvc;
-using CoolCode.ServiceModel.Services;
+using EaseEasy.ServiceModel.Mvc;
+using EaseEasy.ServiceModel.Services;
 using Linkknil.Models;
 using Linkknil.Razor.Models;
 using Ninject;
@@ -23,7 +23,7 @@ namespace Linkknil.Web {
 
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-           // JobConfig.RegisterJobs();
+            JobConfig.RegisterJobs();
         }
 
         private static void RegisterDependencies() {

@@ -104,8 +104,10 @@
                             <div class="entry-content-cnt">
                                 <div class="entry-content">
                                     <a href="/p/@item.Id" class="thumb" title="" target = "_blank">
-                                        <img src="~/content/images/lazyload/grey.gif" data-original="@item.ImagePath" class="attachment-ci_listing_thumb" alt="@item.Title" title="@item.Title"/>
-                                    </a>
+                                        <img src="@item.ImagePath" class="attachment-ci_listing_thumb" alt="@item.Title" title="@item.Title"/>
+                                  
+                                        @*<img src="~/content/images/lazyload/grey.gif" data-original="@item.ImagePath" class="attachment-ci_listing_thumb" alt="@item.Title" title="@item.Title"/>
+                                   *@ </a>
                                 </div>
                             </div>
                             }

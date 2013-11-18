@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
-using CoolCode.Linq;
-using CoolCode.ServiceModel.Services; 
-using CoolCode.Web.Mvc;
+using EaseEasy.Linq;
+using EaseEasy.ServiceModel.Services; 
+using EaseEasy.Web.Mvc;
 using Ninject;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.ServiceModel.Mvc;
 
 namespace Linkknil.Web.Controllers
 {
@@ -49,7 +49,7 @@ namespace Linkknil.Web.Controllers
         {
             //DictionaryItem model = new DictionaryItem();
             //TryUpdateModel(model);
-            //var service = new CoolCode.ServiceModel.Services.
+            //var service = new EaseEasy.ServiceModel.Services.
             //this.SystemService.SaveDictionaryItem(model, this.UserID);
 
 			return this.Success();

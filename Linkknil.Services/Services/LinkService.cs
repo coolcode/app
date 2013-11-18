@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using CoolCode;
-using CoolCode.Data.Entity;
-using CoolCode.ServiceModel.Services;
+using EaseEasy;
+using EaseEasy.Data.Entity;
+using EaseEasy.ServiceModel.Services;
 using HtmlAgilityPack;
 using Linkknil.Entities;
 using Linkknil.Models;

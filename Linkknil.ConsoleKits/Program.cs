@@ -7,6 +7,8 @@ using System.Text;
 using Linkknil.Services;
 using Linkknil.StreamStore;
 using NReadability;
+using Linkknil.Models;
+using EaseEasy.Data.Entity;
 
 namespace Linkknil.ConsoleKits {
     class Program {
@@ -18,7 +20,8 @@ namespace Linkknil.ConsoleKits {
             //SearchServiceTest();
             //  AliyunFileServiceTest();
             // AliyunSearchServiceTest();
-            ReadabilityTest();
+            InitAppLink();
+           // ReadabilityTest();
             //AliyunMultiObjectServiceTest();
 
             //var store = new NavenStore();
@@ -28,6 +31,34 @@ namespace Linkknil.ConsoleKits {
             Console.Read();
 
             return;
+        }
+
+        private static void InitAppLink() {
+            var db = new LinkknilContext();
+
+            for (int i = 4; i <= 21; i++) {
+                db.Execute(@"
+insert into Lnk_Link values(NEWID(),'24856E5B-691F-410E-B1B6-A11A9FE9C908',
+'http://www.jack-liu.com/page/"  
+                    +i
+                    + @"','//*[@id=""maincol""]/div[2]/h2/a[@href]','xpath',1,GETDATE(),null,null)");
+            }
+
+            return;
+
+            var items = new Tuple<string,string>[]{
+                new Tuple<string,string>("生活糖果","http://feed.feedsky.com/lifecandy"),
+            };
+
+            foreach (var item in items) {
+                db.Execute(@"
+insert into PF_App values(@appid,'17361dd6-bcb5-4b87-b75e-39bb9a22ab8a','bruce',
+@title,'','','搞笑娱乐',null,100,GETDATE(),null,GETDATE(),'bruce',GETDATE(),null)
+
+insert into Lnk_Link values(NEWID(),@appid,
+@url,null,'rss',1,GETDATE(),null,null)", 
+                new { appid = Guid.NewGuid(), title = item.Item1, url = item.Item2 });
+            }
         }
 
         class UrlPattern {

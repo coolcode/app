@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Security;
-using CoolCode.Web.Mvc.DataAnnotations;
+using EaseEasy.Web.Mvc.DataAnnotations;
 
 namespace Linkknil.Web.Models
 {

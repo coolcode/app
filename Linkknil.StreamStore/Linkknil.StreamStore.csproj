@@ -34,8 +34,8 @@
     <Reference Include="Aliyun.OpenServices">
       <HintPath>..\packages\Aliyun\Aliyun.OpenServices.dll</HintPath>
     </Reference>
-    <Reference Include="CoolCode.Core">
-      <HintPath>..\packages\Referencies\CoolCode.Core.dll</HintPath>
+    <Reference Include="EaseEasy.Core">
+      <HintPath>..\packages\Referencies\EaseEasy.Core.dll</HintPath>
     </Reference>
     <Reference Include="Raven.Abstractions">
       <HintPath>..\packages\RavenDB\Raven.Abstractions.dll</HintPath>

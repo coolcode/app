@@ -17,7 +17,7 @@ namespace Linkknil.StreamStore {
             documentStore.Initialize();
            /*
            var session = documentStore.OpenSession();
-           session.Store(new { Url = "coolcode@live.com", Name = "Bruce Lee", China = "布鲁斯李" }, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+           session.Store(new { Url = "EaseEasy@live.com", Name = "Bruce Lee", China = "布鲁斯李" }, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
           session.SaveChanges();
         */

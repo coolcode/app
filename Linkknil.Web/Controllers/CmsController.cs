@@ -2,8 +2,8 @@
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
-using CoolCode.Linq; 
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Linq; 
+using EaseEasy.ServiceModel.Mvc;
 
 namespace Linkknil.Web.Controllers
 {

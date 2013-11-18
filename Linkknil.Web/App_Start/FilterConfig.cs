@@ -1,6 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using CoolCode.Web.Mvc;
+using EaseEasy.Web.Mvc;
 
 namespace Linkknil.Web
 {

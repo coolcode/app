@@ -3,13 +3,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using CoolCode.Linq;
+using EaseEasy.Linq;
 using Linkknil.Entities;
-using CoolCode.Data.Entity;
-using CoolCode.Web.Mvc;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Data.Entity;
+using EaseEasy.Web.Mvc;
+using EaseEasy.ServiceModel.Mvc;
 using Linkknil.Services;
-using CoolCode;
+using EaseEasy;
 
 namespace Linkknil.Web.Controllers {
     [Authorize]

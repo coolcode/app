@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using CoolCode.ServiceModel.Services.Implement;
+using EaseEasy.ServiceModel.Services.Implement;
 
 namespace Linkknil.Razor.Models {
 	public class CustomEntityWatcher :DefaultEntityWatcher{

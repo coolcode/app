@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using CoolCode;
-using CoolCode.Data.Entity;
+using EaseEasy;
+using EaseEasy.Data.Entity;
 using Linkknil.Entities;
 using Linkknil.Web.Models;
-using CoolCode.Web.Mvc;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Web.Mvc;
+using EaseEasy.ServiceModel.Mvc;
 
 namespace Linkknil.Web.Controllers {
     [HandleError]

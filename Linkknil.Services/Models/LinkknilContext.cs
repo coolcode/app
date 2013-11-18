@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Migrations;
-using CoolCode.ServiceModel.Services;
+using EaseEasy.ServiceModel.Services;
 using Linkknil.Entities;
 
 namespace Linkknil.Models {

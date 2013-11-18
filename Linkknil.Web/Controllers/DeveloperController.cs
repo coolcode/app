@@ -2,11 +2,11 @@
 using System.Data;
 using System.Linq;
 using System.Web.Mvc;
-using CoolCode;
-using CoolCode.Linq;
+using EaseEasy;
+using EaseEasy.Linq;
 using Linkknil.Entities;
-using CoolCode.Web.Mvc;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.Web.Mvc;
+using EaseEasy.ServiceModel.Mvc;
 
 namespace Linkknil.Web.Controllers {
     [Authorize]

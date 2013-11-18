@@ -35,9 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoolCode.ServiceModel, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Referencies\CoolCode.ServiceModel.dll</HintPath>
+    <Reference Include="EaseEasy.Core">
+      <HintPath>..\packages\Referencies\EaseEasy.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EaseEasy.ServiceModel">
+      <HintPath>..\packages\Referencies\EaseEasy.ServiceModel.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>

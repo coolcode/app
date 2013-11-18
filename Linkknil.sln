@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkknil.Web", "Linkknil.Web\Linkknil.Web.csproj", "{25F1ED96-52FD-4035-B2EC-A58A2E6DEEE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linkknil.Services", "Linkknil.Services\Linkknil.Services.csproj", "{291D5138-7753-4109-89DA-409C1C43BA11}"

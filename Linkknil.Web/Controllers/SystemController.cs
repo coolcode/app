@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using CoolCode.ServiceModel.Mvc;
+using EaseEasy.ServiceModel.Mvc;
 
 namespace Linkknil.Web.Controllers {
     [Authorize]

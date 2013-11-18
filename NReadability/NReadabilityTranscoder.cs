@@ -758,7 +758,7 @@ namespace NReadability
       if (_ArticleTitleDashRegex1.IsMatch(currentTitle))
       {
         currentTitle = _ArticleTitleDashRegex2.Replace(documentTitle, "$1");
-
+//TODO: 2013-3-17 Bruce:提取标题
         if (currentTitle.Split(' ').Length < _MinArticleTitleWordsCount1)
         {
           currentTitle = _ArticleTitleDashRegex3.Replace(documentTitle, "$1");
