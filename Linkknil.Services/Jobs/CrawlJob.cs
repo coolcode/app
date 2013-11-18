@@ -18,13 +18,25 @@ namespace Linkknil.Jobs {
 
             //遍历每个链接
             Parallel.ForEach(links, link => {
-                                            var linkService = new LinkService();
-                                            linkService.DigLink(link);
-                                        });
+                var linkService = new LinkService();
+                linkService.DigLink(link);
+            });
 
         }
 
-        private IEnumerable<LinkItem> GetUnhandledLinks(int count, DateTime handleTime) {
+        public void SyncDigLinks() {
+            //查找未进行Dig的链接
+            var links = GetUnhandledLinks(10, DateTime.Now.AddMinutes(30));//半小时
+
+            //遍历每个链接
+            links.ToList().ForEach(link => {
+                var linkService = new LinkService();
+                linkService.DigLink(link);
+            });
+
+        }
+
+        public IEnumerable<LinkItem> GetUnhandledLinks(int count, DateTime handleTime) {
             return
                 db.Query<LinkItem>(
                    string.Format(@"select top {0} l.* from Lnk_Link l

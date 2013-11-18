@@ -149,6 +149,7 @@
     <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\CmsController.cs" />
     <Compile Include="Controllers\AppCategoryController.cs" />
+    <Compile Include="Controllers\CrawlController.cs" />
     <Compile Include="Controllers\DeveloperController.cs" />
     <Compile Include="Controllers\PendingAppController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
